@@ -19,7 +19,7 @@ export function WhyAgents() {
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-16">
           <ScrollAnimation direction="up">
-            <Badge className="mb-6 px-4 py-2 bg-secondary/10 text-secondary-foreground border-secondary/20">
+            <Badge className="mb-6 px-4 py-2 bg-secondary/10 text-foreground border-secondary/20">
               What's an Agent — and Why Should You Care?
             </Badge>
           </ScrollAnimation>

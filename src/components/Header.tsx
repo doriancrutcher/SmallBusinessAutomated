@@ -7,13 +7,15 @@ const logo = '/SBA_logo_square.png';
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
-  const [activeSection, setActiveSection] = useState('home');
+  const [activeSection, setActiveSection] = useState('hero');
 
   const sections = [
     { id: 'hero', label: 'Home' },
     { id: 'why-agents', label: 'Why Agents' },
-    { id: 'how-it-works', label: 'How It Works' },
-    { id: 'case-studies', label: 'Case Studies' },
+    { id: 'how-it-works', label: 'Process' },
+    { id: 'case-studies', label: 'Results' },
+    { id: 'services', label: 'Services' },
+    { id: 'about', label: 'About' },
     { id: 'contact', label: 'Contact' }
   ];
 
@@ -70,7 +72,7 @@ export function Header() {
 
       {/* Pill Navigation */}
       <header className="fixed top-6 left-1/2 transform -translate-x-1/2 z-50">
-        <nav className="relative bg-background/80 backdrop-blur-md rounded-full px-6 py-2 shadow-lg border border-border">
+        <nav className="relative bg-background/80 backdrop-blur-md rounded-full px-4 py-1.5 shadow-lg border border-border">
           {/* Progress bar */}
           <div 
             className="absolute top-0 left-0 h-0.5 bg-secondary rounded-full transition-all duration-300 ease-out"
@@ -78,12 +80,12 @@ export function Header() {
           />
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-6">
+          <div className="hidden md:flex items-center space-x-4">
             {sections.map((section) => (
               <button
                 key={section.id}
                 onClick={() => scrollToSection(section.id)}
-                className={`px-4 py-2 rounded-full transition-all duration-300 ${
+                className={`px-3 py-1.5 rounded-full transition-all duration-300 ${
                   activeSection === section.id
                     ? 'bg-secondary text-secondary-foreground font-medium'
                     : 'text-foreground/80 hover:text-foreground hover:bg-foreground/10'

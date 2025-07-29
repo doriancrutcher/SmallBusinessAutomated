@@ -50,24 +50,24 @@ export function About() {
 
   const timeline = [
     {
-      year: "2019-2024",
+      year: "2019-2023",
       title: "Developer Relations",
       description: "Worked with hundreds of developers and businesses to implement technical solutions"
     },
     {
-      year: "2023",
+      year: "2025",
       title: "First AI Agent",
       description: "Built my first business automation agent and saw the immediate impact"
     },
     {
-      year: "2024",
+      year: "2025",
       title: "Small Business Automated",
       description: "Launched to help small businesses leverage AI agents for growth"
     }
   ];
 
   return (
-    <section className="py-24 bg-muted/30">
+    <section id="about" className="py-24 bg-muted/30">
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-16">
           <Badge className="mb-6 px-4 py-2 bg-secondary/10 text-foreground border-secondary/20">
@@ -90,10 +90,12 @@ export function About() {
             <Card className="border-2 border-secondary/20 shadow-lg">
               <CardContent className="p-8">
                 <div className="flex items-center space-x-4 mb-6">
-                  {/* Profile Avatar Placeholder */}
-                  <div className="w-20 h-20 bg-secondary/20 rounded-full flex items-center justify-center">
-                    <span className="text-2xl font-bold text-secondary">D</span>
-                  </div>
+                  {/* Profile Avatar */}
+                  <img 
+                    src="/dorianheadshot.jpeg" 
+                    alt="Dorian" 
+                    className="w-20 h-20 rounded-full object-cover border-2 border-secondary/20"
+                  />
                   <div>
                     <h3 className="text-2xl font-bold text-foreground">Dorian</h3>
                     <p className="text-lg text-secondary font-medium">AI Automation Engineer</p>

@@ -134,7 +134,7 @@ export function Contact() {
                             name="name"
                             value={formData.name}
                             onChange={handleInputChange}
-                            className="mt-2 rounded-xl"
+                            className="mt-2 rounded-xl border-border/50 focus:border-secondary/50"
                             required
                           />
                         </div>
@@ -148,7 +148,7 @@ export function Contact() {
                             type="email"
                             value={formData.email}
                             onChange={handleInputChange}
-                            className="mt-2 rounded-xl"
+                            className="mt-2 rounded-xl border-border/50 focus:border-secondary/50"
                             required
                           />
                         </div>
@@ -163,7 +163,7 @@ export function Contact() {
                           name="company"
                           value={formData.company}
                           onChange={handleInputChange}
-                          className="mt-2 rounded-xl"
+                          className="mt-2 rounded-xl border-border/50 focus:border-secondary/50"
                         />
                       </div>
                     </ScrollAnimation>
@@ -178,7 +178,7 @@ export function Contact() {
                           onChange={handleInputChange}
                           placeholder="Describe a task or process that takes up too much of your time. For example: 'I spend 2 hours every Monday manually updating our client database from emails and spreadsheets...'"
                           rows={5}
-                          className="mt-2 rounded-xl"
+                          className="mt-2 rounded-xl border-border/50 focus:border-secondary/50"
                           required
                         />
                       </div>

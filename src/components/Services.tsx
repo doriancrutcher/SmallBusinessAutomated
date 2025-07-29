@@ -59,7 +59,7 @@ export function Services() {
   ];
 
   return (
-    <section className="py-24 bg-background">
+    <section id="services" className="py-24 bg-background">
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-16">
           <Badge className="mb-6 px-4 py-2 bg-secondary/10 text-foreground border-secondary/20">
