@@ -65,7 +65,7 @@ export function Contact() {
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-16">
           <ScrollAnimation direction="up">
-            <Badge className="mb-6 px-4 py-2 bg-secondary/10 text-secondary-foreground border-secondary/20">
+            <Badge className="mb-6 px-4 py-2 bg-secondary/10 text-foreground border-secondary/20">
               Ready to Start?
             </Badge>
           </ScrollAnimation>
@@ -292,7 +292,7 @@ export function Contact() {
                   transition={{ duration: 0.2 }}
                 >
                   <CheckCircle className="w-5 h-5 text-secondary mr-2" />
-                  <span className="text-sm font-medium text-secondary-foreground">
+                  <span className="text-sm font-medium text-foreground">
                     I typically respond within 24 hours
                   </span>
                 </motion.div>

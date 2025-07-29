@@ -62,7 +62,7 @@ export function Services() {
     <section className="py-24 bg-background">
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-16">
-          <Badge className="mb-6 px-4 py-2 bg-secondary/10 text-secondary-foreground border-secondary/20">
+          <Badge className="mb-6 px-4 py-2 bg-secondary/10 text-foreground border-secondary/20">
             What I Offer
           </Badge>
           <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
@@ -85,7 +85,7 @@ export function Services() {
               }`}
             >
               {service.popular && (
-                <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-secondary text-secondary-foreground px-4 py-1">
+                <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-secondary text-foreground px-4 py-1">
                   Most Popular
                 </Badge>
               )}

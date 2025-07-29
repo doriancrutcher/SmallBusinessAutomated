@@ -165,7 +165,7 @@ export function WhyAgents() {
                 <ScrollAnimation direction="up" delay={0.8}>
                   <div className="mt-8 p-4 bg-secondary/10 rounded-xl border border-secondary/20">
                     <div className="text-center">
-                      <p className="text-sm font-medium text-secondary-foreground">
+                      <p className="text-sm font-medium text-foreground">
                         ✨ All done! Your AI agent completed 6 tasks while you focused on growing your business.
                       </p>
                     </div>

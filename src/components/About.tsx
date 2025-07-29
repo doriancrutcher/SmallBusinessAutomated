@@ -70,7 +70,7 @@ export function About() {
     <section className="py-24 bg-muted/30">
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-16">
-          <Badge className="mb-6 px-4 py-2 bg-secondary/10 text-secondary-foreground border-secondary/20">
+          <Badge className="mb-6 px-4 py-2 bg-secondary/10 text-foreground border-secondary/20">
             Who You're Working With
           </Badge>
           <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
@@ -205,14 +205,14 @@ export function About() {
                 <div className="flex justify-center space-x-4">
                   <button className="flex items-center space-x-2 px-4 py-2 bg-secondary/10 rounded-full hover:bg-secondary/20 transition-colors">
                     <MessageCircle className="w-4 h-4 text-secondary" />
-                    <span className="text-sm text-secondary-foreground">LinkedIn</span>
+                    <span className="text-sm text-foreground">LinkedIn</span>
                   </button>
                   <button 
                     onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
                     className="flex items-center space-x-2 px-4 py-2 bg-secondary/10 rounded-full hover:bg-secondary/20 transition-colors"
                   >
                     <Calendar className="w-4 h-4 text-secondary" />
-                    <span className="text-sm text-secondary-foreground">Book a Call</span>
+                    <span className="text-sm text-foreground">Book a Call</span>
                   </button>
                 </div>
               </CardContent>

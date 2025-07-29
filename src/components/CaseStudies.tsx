@@ -228,7 +228,7 @@ export function CaseStudies() {
                         >
                           {study.icon}
                         </motion.div>
-                        <Badge variant="outline" className="border-secondary/30 text-secondary-foreground">
+                        <Badge variant="outline" className="border-secondary/30 text-foreground">
                           {study.industry}
                         </Badge>
                       </div>
@@ -252,7 +252,7 @@ export function CaseStudies() {
                         <h4 className="font-semibold text-sm text-foreground mb-2">Tools Used</h4>
                         <div className="flex flex-wrap gap-1">
                           {study.toolsUsed.map(tool => (
-                            <Badge key={tool} variant="secondary" className="text-xs bg-secondary/10 text-secondary-foreground border-secondary/20">
+                            <Badge key={tool} variant="secondary" className="text-xs bg-secondary/10 text-foreground border-secondary/20">
                               {tool}
                             </Badge>
                           ))}

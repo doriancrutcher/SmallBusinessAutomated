@@ -38,7 +38,7 @@ export function HowItWorks() {
     <section id="how-it-works" className="py-24 bg-background">
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-16">
-          <Badge className="mb-6 px-4 py-2 bg-secondary/10 text-secondary-foreground border-secondary/20">
+          <Badge className="mb-6 px-4 py-2 bg-secondary/10 text-foreground border-secondary/20">
             Simple Process
           </Badge>
           <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
