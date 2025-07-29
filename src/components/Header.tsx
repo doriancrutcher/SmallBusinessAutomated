@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Menu, X, Bot } from "lucide-react";
-// Placeholder logo - replace with actual logo file
-const logo = '/logo.png';
+// SBA Logo
+const logo = '/SBA_logo_square.png';
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -10,7 +10,7 @@ export function Header() {
   const [activeSection, setActiveSection] = useState('home');
 
   const sections = [
-    { id: 'home', label: 'Home' },
+    { id: 'hero', label: 'Home' },
     { id: 'why-agents', label: 'Why Agents' },
     { id: 'how-it-works', label: 'How It Works' },
     { id: 'case-studies', label: 'Case Studies' },
@@ -29,6 +29,13 @@ export function Header() {
         element: document.getElementById(section.id)
       })).filter(s => s.element);
 
+      // Check if we're at the top of the page
+      if (window.scrollY < 100) {
+        setActiveSection('hero');
+        return;
+      }
+
+      // Find the section that's currently in view
       for (let i = sectionElements.length - 1; i >= 0; i--) {
         const rect = sectionElements[i].element!.getBoundingClientRect();
         if (rect.top <= 100) {
@@ -43,7 +50,7 @@ export function Header() {
   }, []);
 
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId === 'home' ? 'hero' : sectionId);
+    const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }

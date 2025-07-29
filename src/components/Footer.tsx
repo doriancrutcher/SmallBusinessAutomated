@@ -1,8 +1,7 @@
 import { Mail, MessageCircle, Calendar, ArrowUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
-// TODO: Replace with actual logo file
-// import logo from 'figma:asset/1dd4c83891726f10689327a212ce569719414992.png';
-const logo = '/logo.png'; // Placeholder - replace with actual logo
+// SBA Logo
+const logo = '/SBA_logo_square.png';
 
 export function Footer() {
   const scrollToTop = () => {
