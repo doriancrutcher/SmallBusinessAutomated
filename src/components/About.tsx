@@ -73,7 +73,7 @@ export function About() {
           <Badge className="mb-6 px-4 py-2 bg-secondary/10 text-foreground border-secondary/20">
             Who You're Working With
           </Badge>
-          <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
             Just Me —{' '}
             <span className="text-secondary">Dorian</span>
           </h2>
@@ -83,7 +83,7 @@ export function About() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
+        <div className="grid md:grid-cols-2 gap-8 lg:gap-16 items-center mb-20">
           {/* Left Column - About Content */}
           <div className="space-y-8">
             {/* Profile Card */}

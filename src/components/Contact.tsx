@@ -84,7 +84,7 @@ export function Contact() {
           </ScrollAnimation>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-16">
+        <div className="grid md:grid-cols-2 gap-8 lg:gap-16">
           {/* Left Column - Form */}
           <ScrollAnimation direction="left">
             <Card className="shadow-xl border-2 border-secondary/10">

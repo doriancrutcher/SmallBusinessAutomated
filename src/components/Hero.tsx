@@ -14,7 +14,7 @@ export function Hero() {
   return (
     <section id="hero" className="min-h-screen flex items-center justify-center pt-20 pb-16 px-4">
       <div className="max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid md:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Left Column - Content */}
           <div className="space-y-8">
             <div className="space-y-6">
@@ -26,14 +26,14 @@ export function Hero() {
               </ScrollAnimation>
               
               <ScrollAnimation direction="up" delay={0.4}>
-                <h1 className="text-5xl lg:text-6xl font-bold text-foreground leading-tight">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
                   Let AI Agents Handle the{' '}
                   <span className="text-secondary">Busywork</span>
                 </h1>
               </ScrollAnimation>
               
               <ScrollAnimation direction="up" delay={0.6}>
-                <p className="text-xl text-muted-foreground leading-relaxed max-w-2xl">
+                <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl">
                   I help small business owners automate repetitive tasks and scale smarter — 
                   using custom-built agents designed just for your workflow.
                 </p>

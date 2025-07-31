@@ -65,7 +65,7 @@ export function Services() {
           <Badge className="mb-6 px-4 py-2 bg-secondary/10 text-foreground border-secondary/20">
             What I Offer
           </Badge>
-          <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
             What I Can Build
             <br />
             <span className="text-secondary">For You</span>
@@ -76,7 +76,7 @@ export function Services() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
           {services.map((service, index) => (
             <Card 
               key={index} 
@@ -124,13 +124,13 @@ export function Services() {
                 
                 <button 
                   onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                  className={`w-full mt-6 pill-button group transition-all duration-300 ${
+                  className={`w-full mt-6 pill-button group transition-all duration-300 flex items-center justify-center ${
                     service.popular 
                       ? 'pill-button-primary hover-glow-lime' 
                       : 'pill-button-secondary hover:bg-secondary/10'
                   }`}
                 >
-                  Get Started
+                  <span>Get Started</span>
                   <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                 </button>
               </CardContent>
@@ -150,9 +150,10 @@ export function Services() {
             </p>
             <button 
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-              className="pill-button pill-button-primary hover-glow-lime text-lg px-10 py-4"
+              className="pill-button pill-button-primary hover-glow-lime text-lg px-10 py-4 flex items-center justify-center"
             >
-              Book Free Audit
+              <span>Book Free Audit</span>
+              <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
             </button>
           </div>
         </div>

@@ -154,7 +154,7 @@ export function CaseStudies() {
             </Badge>
           </ScrollAnimation>
           <ScrollAnimation direction="up" delay={0.2}>
-            <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
               What I've Built
               <br />
               <span className="text-secondary">(So Far)</span>
@@ -210,7 +210,7 @@ export function CaseStudies() {
               {caseStudies.map((study, index) => (
                 <motion.div
                   key={index}
-                  className="flex-none w-80 lg:w-96"
+                  className="flex-none w-72 md:w-80 lg:w-96"
                   style={{ scrollSnapAlign: 'start' }}
                   initial={{ opacity: 0, x: 50 }}
                   whileInView={{ opacity: 1, x: 0 }}
