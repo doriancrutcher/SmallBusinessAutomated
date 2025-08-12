@@ -11,11 +11,10 @@ export function Header() {
 
   const sections = [
     { id: 'about', label: 'About' },
-    { id: 'hero', label: 'Work' },
     { id: 'services', label: 'Skills' },
     { id: 'case-studies', label: 'Projects' },
     { id: 'how-it-works', label: 'Process' },
-    { id: 'why-agents', label: 'Experience' },
+    { id: 'why-agents', label: 'Demo' },
     { id: 'contact', label: 'Contact' }
   ];
 

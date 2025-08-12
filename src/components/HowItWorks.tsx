@@ -1,36 +1,36 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Search, Wrench, CheckSquare, TrendingUp, ArrowRight } from "lucide-react";
+import { Search, Wrench, CheckSquare, TrendingUp } from "lucide-react";
 
 export function HowItWorks() {
   const steps = [
     {
       number: 1,
       icon: <Search className="w-6 h-6" />,
-      title: "Identify Time-Sucking Task",
-      description: "We'll hop on a call to figure out what's eating up your time. Usually takes 15 minutes to spot the biggest opportunity.",
-      details: ["Free 30-minute audit", "No commitment required", "Identify biggest pain points"]
+      title: "Understand Your Needs",
+      description: "We'll discuss your project requirements, technical challenges, and goals to ensure perfect alignment.",
+      details: ["Project consultation", "Technical assessment", "Goal alignment"]
     },
     {
       number: 2,
       icon: <Wrench className="w-6 h-6" />,
-      title: "Design Your Custom Agent",
-      description: "I'll map out exactly how your agent will work, what tools it needs, and how it fits into your existing workflow.",
-      details: ["Custom workflow design", "Tool integration plan", "Clear timeline & pricing"]
+      title: "Design & Plan",
+      description: "I'll create a comprehensive technical plan, architecture design, and implementation roadmap for your project.",
+      details: ["Technical architecture", "Implementation plan", "Timeline & milestones"]
     },
     {
       number: 3,
       icon: <CheckSquare className="w-6 h-6" />,
-      title: "Approve and Build",
-      description: "Once you're happy with the plan, I build your agent. You'll see progress updates and can test everything before it goes live.",
-      details: ["Regular progress updates", "Test environment first", "Your approval at each step"]
+      title: "Build & Iterate",
+      description: "Development begins with regular check-ins, progress updates, and collaborative refinement throughout the process.",
+      details: ["Regular progress updates", "Collaborative development", "Iterative improvements"]
     },
     {
       number: 4,
       icon: <TrendingUp className="w-6 h-6" />,
-      title: "Monitor and Refine",
-      description: "Your agent starts working immediately. I monitor performance and make improvements based on real usage data.",
-      details: ["Performance monitoring", "Continuous improvements", "Ongoing support included"]
+      title: "Enable & Optimize",
+      description: "Your solution launches with a focus on successful adoption, seamless performance, and measurable business outcomes.",
+      details: ["End-user training and enablement", "Post-deployment monitoring and optimization", "Ongoing technical guidance to ensure ROI"]
     }
   ];
 
@@ -39,16 +39,14 @@ export function HowItWorks() {
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-16">
           <Badge className="mb-6 px-4 py-2 bg-secondary/10 text-foreground border-secondary/20">
-            Simple Process
+            My Process
           </Badge>
           <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
-            What It's Like to Work
-            <br />
-            <span className="text-secondary">With Me</span>
+            Process
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            No complicated sales process or lengthy contracts. Just a straightforward approach 
-            to getting you the automation you need.
+            A collaborative, iterative approach that ensures your project succeeds through 
+            clear communication, technical excellence, and ongoing partnership.
           </p>
         </div>
 
@@ -61,7 +59,7 @@ export function HowItWorks() {
             <div className="grid grid-cols-4 gap-8 relative z-10">
               {steps.map((step, index) => (
                 <div key={step.number} className="relative">
-                  <Card className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                  <Card className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1 process-card">
                     <CardContent className="p-8 text-center">
                       {/* Step Number Circle */}
                       <div className="relative mb-6">
@@ -94,12 +92,7 @@ export function HowItWorks() {
                     </CardContent>
                   </Card>
 
-                  {/* Arrow between steps */}
-                  {index < steps.length - 1 && (
-                    <div className="absolute top-1/2 -right-4 transform -translate-y-1/2 z-20">
-                      <ArrowRight className="w-8 h-8 text-secondary" />
-                    </div>
-                  )}
+
                 </div>
               ))}
             </div>
@@ -110,7 +103,7 @@ export function HowItWorks() {
         <div className="lg:hidden space-y-8">
           {steps.map((step, index) => (
             <div key={step.number} className="relative">
-              <Card className="hover:shadow-lg transition-all duration-300">
+              <Card className="hover:shadow-lg transition-all duration-300 process-card">
                 <CardContent className="p-6">
                   <div className="flex items-start space-x-4">
                     {/* Step Number Circle */}
@@ -156,25 +149,7 @@ export function HowItWorks() {
           ))}
         </div>
 
-        {/* CTA Section */}
-        <div className="mt-20 text-center">
-          <div className="bg-gradient-to-r from-secondary/5 to-primary/5 rounded-3xl p-12 border border-secondary/10">
-            <h3 className="text-2xl font-bold text-foreground mb-4">
-              Ready to Get Started?
-            </h3>
-            <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Most clients see their first agent working within 2 weeks. 
-              Let's chat about what's possible for your business.
-            </p>
-            <button 
-              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-              className="pill-button pill-button-primary hover-glow-lime text-lg px-10 py-4 group"
-            >
-              Book Your Free Audit
-              <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-            </button>
-          </div>
-        </div>
+
       </div>
     </section>
   );

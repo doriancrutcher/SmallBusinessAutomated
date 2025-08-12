@@ -2,6 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Circuit background stacking context */
+html, body {
+  height: 100%;
+}
+body {
+  position: relative;           /* creates the stacking context */
+  background: #121212;
+  color: #EDEDED;
+}
+#root, #app, .app-root {
+  position: relative;
+  z-index: 1;                   /* keep content above the background */
+}
+.circuit-background {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
 @custom-variant light (&:is(.light *));
 
 :root {
@@ -303,5 +323,36 @@ html {
   
   .smooth-scroll {
     scroll-behavior: auto;
+  }
+}
+
+/* Tech Animation Styles */
+.system-online-dot {
+  will-change: opacity, transform;
+  transform-origin: center;
+}
+
+.circuit-background {
+  will-change: opacity;
+}
+
+.metric-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.metric-sweep-overlay {
+  will-change: opacity;
+}
+
+
+
+/* Reduce motion for accessibility - disable tech animations */
+@media (prefers-reduced-motion: reduce) {
+  .system-online-dot,
+  .circuit-background,
+  .metric-sweep-overlay {
+    animation: none !important;
+    transition: none !important;
   }
 }

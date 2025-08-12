@@ -35,12 +35,12 @@ export function Services() {
     {
       icon: <Bot className="w-8 h-8" />,
       title: "AI-Powered Applications",
-      description: "Building intelligent applications and AI agents that automate workflows and enhance user experiences using modern AI tools and platforms",
+      description: "Building intelligent applications and AI agents that solve complex problems and enhance user experiences using modern AI tools and platforms",
       technologies: [
         "AI Agent Development",
         "Zapier & Relevance AI",
         "OpenAI API Integration",
-        "Workflow Automation"
+                  "AI Solutions"
       ],
       level: "Advanced",
       popular: false
@@ -68,9 +68,7 @@ export function Services() {
             Technical Expertise
           </Badge>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
-            Skills & Technologies
-            <br />
-            <span className="text-secondary">I Master</span>
+            Skills & Tools
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             From frontend frameworks to backend systems, I bring a comprehensive skill set 

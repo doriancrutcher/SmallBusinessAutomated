@@ -39,7 +39,7 @@ export function About() {
     {
       icon: <Bot className="w-5 h-5" />,
       title: "AI & Machine Learning", 
-      description: "Building intelligent applications and automation solutions"
+      description: "Building intelligent applications and AI solutions"
     },
     {
       icon: <Zap className="w-5 h-5" />,
@@ -52,7 +52,7 @@ export function About() {
     {
       year: "2019-2023",
       title: "Developer Relations",
-      description: "Worked with hundreds of developers and businesses to implement technical solutions"
+      description: "Worked with hundreds of developers and teams to implement technical solutions"
     },
     {
       year: "2023-2024",
@@ -62,7 +62,7 @@ export function About() {
     {
       year: "2024 - Today",
       title: "STERIS – Technical Solutions Engineer (Medical Technology)",
-      description: "Worked with healthcare providers to deliver tailored technical solutions. Led on-site diagnostics, repairs, and preventive maintenance. Coordinated installation projects and ensured seamless integration, resulting in improved service delivery and client satisfaction."
+              description: "Worked with healthcare providers to deliver tailored technical solutions. Led on-site diagnostics, repairs, and preventive maintenance. Coordinated installation projects and ensured seamless integration, resulting in improved service delivery and team satisfaction."
     }
   ];
 
@@ -79,8 +79,11 @@ export function About() {
             Hi, I'm{' '}
             <span className="text-secondary">Dorian</span>
           </h1>
+          <h2 className="text-2xl md:text-3xl font-semibold text-foreground mb-4">
+            Solutions Engineer & Developer Relations Specialist
+          </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            I connect people and technology to turn ideas into solutions that make an impact.
+            I connect people and technology to turn ideas into impactful solutions.
           </p>
         </motion.div>
 
@@ -110,61 +113,76 @@ export function About() {
                 </div>
                 
                 <p className="text-muted-foreground leading-relaxed mb-6">
-                  I help businesses turn ideas into solutions — combining 5+ years in development, developer relations, and a knack for creating engagement. From building custom applications to guiding teams through complex integrations, I focus on creating technology that's practical, scalable, and user-friendly. I've led live coding workshops for 50+ developers, brought creative solutions to hackathons that earned recognition, and grown YouTube engagement from hundreds to 10,000+.
+                  I've spent 5+ years building and delivering solutions that work — from custom applications to complex system integrations. My work spans full-stack development, developer education, and AI-driven automation, always with a focus on practical, scalable, and user-friendly results. I've led live coding workshops for 50+ developers, brought creative solutions to hackathons, and grown YouTube engagement from hundreds to <strong>10,000+</strong>.
                 </p>
 
-                <div className="space-y-4">
-                  <h4 className="font-semibold text-foreground">What I Bring</h4>
-                  <ul className="space-y-2">
-                    <li className="flex items-start space-x-3">
-                      <div className="w-2 h-2 bg-secondary rounded-full mt-2 flex-shrink-0"></div>
-                      <span className="text-sm text-muted-foreground">
-                        <strong>Technical range:</strong> Full-stack development and rapid prototyping with modern tools
-                      </span>
-                    </li>
-                    <li className="flex items-start space-x-3">
-                      <div className="w-2 h-2 bg-secondary rounded-full mt-2 flex-shrink-0"></div>
-                      <span className="text-sm text-muted-foreground">
-                        <strong>Solution-oriented mindset:</strong> I bridge business needs and technical possibilities
-                      </span>
-                    </li>
-                    <li className="flex items-start space-x-3">
-                      <div className="w-2 h-2 bg-secondary rounded-full mt-2 flex-shrink-0"></div>
-                      <span className="text-sm text-muted-foreground">
-                        <strong>People-first approach:</strong> I connect with clients through honesty and transparency, building trust that encourages them to explore and adopt the right solutions.
-                      </span>
-                    </li>
-                  </ul>
-                </div>
+
               </CardContent>
             </Card>
 
-            {/* Expertise */}
+            {/* What I Bring - Transformed from Custom Solutions */}
             <div>
-              <h4 className="text-xl font-bold text-foreground mb-6">Custom Solutions that Scale</h4>
-              <div className="space-y-4">
-                {expertise.map((skill, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, x: -50 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
-                  >
-                    <Card className="hover:shadow-md transition-shadow duration-300">
-                      <CardContent className="p-4">
-                        <div className="flex items-start space-x-3">
-                          <div className="w-10 h-10 bg-secondary/20 rounded-lg flex items-center justify-center text-secondary flex-shrink-0">
-                            {skill.icon}
-                          </div>
-                          <div>
-                            <h5 className="font-semibold text-foreground mb-1">{skill.title}</h5>
-                            <p className="text-sm text-muted-foreground">{skill.description}</p>
-                          </div>
+              <h4 className="text-xl font-bold text-foreground mb-6">What I Bring</h4>
+              <div className="grid grid-cols-1 gap-4">
+                <motion.div
+                  initial={{ opacity: 0, x: -50 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6, delay: 0.6 }}
+                >
+                  <Card className="bg-secondary/5 border-secondary/20 hover:shadow-md transition-shadow duration-300">
+                    <CardContent className="p-4">
+                      <div className="flex items-start space-x-3">
+                        <div className="w-10 h-10 bg-secondary/20 rounded-lg flex items-center justify-center text-secondary flex-shrink-0">
+                          <Code className="w-5 h-5" />
                         </div>
-                      </CardContent>
-                    </Card>
-                  </motion.div>
-                ))}
+                        <div>
+                          <h5 className="font-semibold text-foreground mb-1">Translating Business Needs into Technical Solutions</h5>
+                          <p className="text-sm text-muted-foreground">Turning client challenges into actionable, efficient, and scalable technical plans.</p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+                
+                <motion.div
+                  initial={{ opacity: 0, x: -50 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6, delay: 0.7 }}
+                >
+                  <Card className="bg-secondary/5 border-secondary/20 hover:shadow-md transition-shadow duration-300">
+                    <CardContent className="p-4">
+                      <div className="flex items-start space-x-3">
+                        <div className="w-10 h-10 bg-secondary/20 rounded-lg flex items-center justify-center text-secondary flex-shrink-0">
+                          <Zap className="w-5 h-5" />
+                        </div>
+                        <div>
+                          <h5 className="font-semibold text-foreground mb-1">Rapid Prototyping & Iteration</h5>
+                          <p className="text-sm text-muted-foreground">Building and testing solutions quickly to validate ideas and adapt based on feedback.</p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+                
+                <motion.div
+                  initial={{ opacity: 0, x: -50 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6, delay: 0.8 }}
+                >
+                  <Card className="bg-secondary/5 border-secondary/20 hover:shadow-md transition-shadow duration-300">
+                    <CardContent className="p-4">
+                      <div className="flex items-start space-x-3">
+                        <div className="w-10 h-10 bg-secondary/20 rounded-lg flex items-center justify-center text-secondary flex-shrink-0">
+                          <Users className="w-5 h-5" />
+                        </div>
+                        <div>
+                          <h5 className="font-semibold text-foreground mb-1">Clear Communication Across Teams</h5>
+                          <p className="text-sm text-muted-foreground">Bridging technical and non-technical stakeholders to ensure alignment and successful delivery.</p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </motion.div>
               </div>
             </div>
           </motion.div>
@@ -185,7 +203,7 @@ export function About() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
                 >
-                  <Card className="text-center hover:shadow-lg transition-shadow duration-300">
+                  <Card className="text-center hover:shadow-lg transition-shadow duration-300 metric-card">
                     <CardContent className="p-6">
                       <div className="w-12 h-12 bg-secondary/20 rounded-xl flex items-center justify-center text-secondary mx-auto mb-4">
                         {stat.icon}

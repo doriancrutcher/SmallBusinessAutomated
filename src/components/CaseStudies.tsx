@@ -40,15 +40,15 @@ export function CaseStudies() {
     {
       title: "Local Marketing Agency",
       industry: "Marketing",
-      problem: "Client reporting took 2 days every month - pulling data from 5 different platforms manually",
+              problem: "Reporting took 2 days every month - pulling data from 5 different platforms manually",
       toolsUsed: ["Make.com", "Google Sheets", "Slack"],
       agent: "Report Generation Agent",
       results: {
         timeSaved: "16 hours/month", 
         efficiency: "90% faster reporting",
-        satisfaction: "Clients love the consistency"
+        satisfaction: "Team loves the consistency"
       },
-      description: "Created an agent that pulls performance data from all platforms and generates beautiful client reports automatically.",
+        description: "Created an agent that pulls performance data from all platforms and generates beautiful reports automatically.",
       icon: <TrendingUp className="w-5 h-5" />,
       tags: ["Marketing", "Make.com", "Reporting"]
     },
@@ -85,7 +85,7 @@ export function CaseStudies() {
     {
       title: "Consulting Firm", 
       industry: "Professional Services",
-      problem: "Proposal writing taking 8+ hours per client, plus tracking follow-ups manually in spreadsheets",
+              problem: "Proposal writing taking 8+ hours per project, plus tracking follow-ups manually in spreadsheets",
       toolsUsed: ["Notion", "DocuSign", "Pipedrive"],
       agent: "Proposal & Follow-up Agent",
       results: {
@@ -155,14 +155,12 @@ export function CaseStudies() {
           </ScrollAnimation>
           <ScrollAnimation direction="up" delay={0.2}>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
-              What I've Built
-              <br />
-              <span className="text-secondary">(So Far)</span>
+              Projects & Impact
             </h2>
           </ScrollAnimation>
           <ScrollAnimation direction="up" delay={0.4}>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Every business is different, but the results are consistently the same: 
+              Every project is different, but the results are consistently the same: 
               more time, less stress, and systems that actually work.
             </p>
           </ScrollAnimation>

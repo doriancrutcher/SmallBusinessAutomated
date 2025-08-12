@@ -1,4 +1,4 @@
-import { Mail, MessageCircle, Calendar, ArrowUp } from "lucide-react";
+import { Mail, MessageCircle, Calendar, ArrowUp, Linkedin, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
 // SBA Logo
 const logo = '/SBA_logo_square.png';
@@ -9,7 +9,7 @@ export function Footer() {
   };
 
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId === 'home' ? 'hero' : sectionId);
+    const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
@@ -32,7 +32,7 @@ export function Footer() {
             <div className="flex items-center space-x-3">
               <img 
                 src={logo} 
-                alt="Small Business Automated Logo" 
+                alt="Portfolio Logo" 
                 className="w-10 h-10 object-contain bg-primary-foreground/10 rounded-xl p-2"
               />
               <div>
@@ -42,7 +42,7 @@ export function Footer() {
             </div>
             <p className="text-primary-foreground/80 leading-relaxed">
               Building intelligent applications and scalable solutions. 
-              Specializing in React, AI automation, and developer education.
+              Specializing in React, AI development, and developer education.
             </p>
           </div>
 
@@ -92,14 +92,14 @@ export function Footer() {
                 onClick={() => window.open('https://github.com/doriancrutcher', '_blank')}
                 className="flex items-center space-x-3 text-primary-foreground/70 hover:text-primary-foreground transition-colors group"
               >
-                <MessageCircle className="w-4 h-4" />
+                <Github className="w-4 h-4" />
                 <span>GitHub</span>
               </button>
               <button 
                 onClick={() => window.open('https://www.linkedin.com/in/dorian-crutcher/', '_blank')}
                 className="flex items-center space-x-3 text-primary-foreground/70 hover:text-primary-foreground transition-colors group"
               >
-                <MessageCircle className="w-4 h-4" />
+                <Linkedin className="w-4 h-4" />
                 <span>LinkedIn</span>
               </button>
             </div>
@@ -110,9 +110,7 @@ export function Footer() {
 
         <div className="border-t border-primary-foreground/20 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center text-center md:text-left">
-            <p className="text-sm text-primary-foreground/60">
-              © 2024 Dorian Crutcher. All rights reserved.
-            </p>
+     
             <div className="flex items-center space-x-6 mt-4 md:mt-0">
               <span className="text-sm text-primary-foreground/60">
                 Made with ❤️ for developers and innovators

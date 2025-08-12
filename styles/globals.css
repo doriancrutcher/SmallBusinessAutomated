@@ -1,5 +1,25 @@
 @custom-variant light (&:is(.light *));
 
+/* Circuit background stacking context */
+html, body {
+  height: 100%;
+}
+body {
+  position: relative;           /* creates the stacking context */
+  background: #121212;
+  color: #EDEDED;
+}
+#root, #app, .app-root {
+  position: relative;
+  z-index: 1;                   /* keep content above the background */
+}
+.circuit-background {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
 :root {
   --font-size: 16px;
   --background: #121212;
