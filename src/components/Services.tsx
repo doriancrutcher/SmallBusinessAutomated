@@ -7,10 +7,11 @@ export function Services() {
     {
       icon: <Code className="w-8 h-8" />,
       title: "Frontend Development",
-      description: "Building responsive, interactive user interfaces with modern frameworks and best practices",
+      description: "Building fast, responsive interfaces with React, Next.js, and Vite. Drawing on my Developer Relations background, I design UIs that guide users intuitively from first click to confident usage, ensuring speed and accessibility.",
       technologies: [
         "React & Next.js",
-        "TypeScript & JavaScript", 
+        "Vite",
+        "TypeScript & JavaScript",
         "Tailwind CSS & Styled Components",
         "Responsive Design & Accessibility"
       ],
@@ -24,6 +25,7 @@ export function Services() {
       technologies: [
         "Node.js & Express",
         "Python & FastAPI",
+        "Firebase & AWS",
         "PostgreSQL & MongoDB",
         "RESTful APIs & GraphQL"
       ],
@@ -32,28 +34,28 @@ export function Services() {
     },
     {
       icon: <Bot className="w-8 h-8" />,
-      title: "AI & Machine Learning",
-      description: "Integrating intelligent features and automation into applications using cutting-edge AI",
+      title: "AI-Powered Applications",
+      description: "Building intelligent applications and AI agents that automate workflows and enhance user experiences using modern AI tools and platforms",
       technologies: [
+        "AI Agent Development",
+        "Zapier & Relevance AI",
         "OpenAI API Integration",
-        "Natural Language Processing",
-        "Machine Learning Models",
-        "Automation & Workflows"
+        "Workflow Automation"
       ],
-      level: "Intermediate",
+      level: "Advanced",
       popular: false
     },
     {
       icon: <Globe className="w-8 h-8" />,
-      title: "DevOps & Deployment",
-      description: "Setting up reliable deployment pipelines and infrastructure for scalable applications",
+      title: "Developer Education & Engagement",
+      description: "Creating resources and experiences that help developers learn, adopt, and succeed with technology",
       technologies: [
-        "Docker & Containerization",
-        "AWS & Cloud Services",
-        "CI/CD Pipelines",
-        "Performance Optimization"
+        "Live Coding Workshops",
+        "Technical Documentation",
+        "API Demos & Tutorials",
+        "Community Building"
       ],
-      level: "Intermediate",
+      level: "Advanced",
       popular: false
     }
   ];
@@ -123,14 +125,21 @@ export function Services() {
                 </ul>
                 
                 <button 
-                  onClick={() => document.getElementById('case-studies')?.scrollIntoView({ behavior: 'smooth' })}
+                  onClick={() => skill.title === "Frontend Development" 
+                    ? window.open('https://github.com/doriancrutcher?tab=repositories', '_blank')
+                    : skill.title === "Backend Development"
+                    ? window.open('https://github.com/doriancrutcher?tab=repositories', '_blank')
+                    : skill.title === "AI-Powered Applications"
+                    ? window.open('https://www.youtube.com/shorts/RyJiqfWZEJE', '_blank')
+                    : document.getElementById('case-studies')?.scrollIntoView({ behavior: 'smooth' })
+                  }
                   className={`w-full mt-6 pill-button group transition-all duration-300 flex items-center justify-center ${
                     skill.popular 
                       ? 'pill-button-primary hover-glow-lime' 
                       : 'pill-button-secondary hover:bg-secondary/10'
                   }`}
                 >
-                  <span>See Examples</span>
+                  <span>{skill.title === "Frontend Development" || skill.title === "Backend Development" ? "View GitHub Projects" : skill.title === "AI-Powered Applications" ? "Watch AI Demo" : "See Examples"}</span>
                   <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                 </button>
               </CardContent>
@@ -138,25 +147,7 @@ export function Services() {
           ))}
         </div>
 
-        {/* Additional Info */}
-        <div className="mt-20 text-center">
-          <div className="bg-gradient-to-r from-secondary/5 to-primary/5 rounded-3xl p-12 border border-secondary/10">
-            <h3 className="text-2xl font-bold text-foreground mb-4">
-              Ready to Build Something Amazing?
-            </h3>
-            <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-              I'm always excited to take on new challenges and bring innovative ideas to life. 
-              Let's discuss your project and see how we can work together.
-            </p>
-            <button 
-              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-              className="pill-button pill-button-primary hover-glow-lime text-lg px-10 py-4 flex items-center justify-center"
-            >
-              <span>Start a Project</span>
-              <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-            </button>
-          </div>
-        </div>
+
       </div>
     </section>
   );
