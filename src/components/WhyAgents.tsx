@@ -1,6 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Bot, User, CheckCircle, Clock, Brain, Zap, ArrowRight, Youtube } from "lucide-react";
+import { Bot, User, CheckCircle, Clock, Brain, Zap, Youtube } from "lucide-react";
 import { ScrollAnimation, StaggerContainer, StaggerItem } from "./ScrollAnimation";
 import { motion } from 'framer-motion';
 

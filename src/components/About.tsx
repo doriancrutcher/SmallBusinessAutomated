@@ -1,5 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Bot, Code, Users, Zap, Github, Linkedin, Mail, Presentation } from "lucide-react";
+import { Code, Users, Zap, Github, Linkedin, Mail, Presentation } from "lucide-react";
 import { motion } from 'framer-motion';
 
 export function About() {
@@ -30,23 +30,7 @@ export function About() {
     }
   ];
 
-  const expertise = [
-    {
-      icon: <Code className="w-5 h-5" />,
-      title: "Full-Stack Development",
-      description: "React, Node.js, Python, and modern web technologies"
-    },
-    {
-      icon: <Bot className="w-5 h-5" />,
-      title: "AI & Machine Learning", 
-      description: "Building intelligent applications and AI solutions"
-    },
-    {
-      icon: <Zap className="w-5 h-5" />,
-      title: "System Architecture",
-      description: "Designing scalable, maintainable software systems"
-    }
-  ];
+
 
   const timeline = [
     {

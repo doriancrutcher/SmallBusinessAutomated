@@ -1,9 +1,9 @@
 import { useRef } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+
 import { ExternalLink, Bot, Calendar, MessageSquare, FileText, Zap, TrendingUp, ChevronLeft, ChevronRight } from "lucide-react";
-import { ScrollAnimation, StaggerContainer, StaggerItem } from "./ScrollAnimation";
+import { ScrollAnimation } from "./ScrollAnimation";
 import { motion } from 'framer-motion';
 
 export function CaseStudies() {

@@ -57,7 +57,7 @@ export function HowItWorks() {
             <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-secondary/20 -translate-y-1/2 z-0"></div>
             
             <div className="grid grid-cols-4 gap-8 relative z-10">
-              {steps.map((step, index) => (
+              {steps.map((step) => (
                 <div key={step.number} className="relative">
                   <Card className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1 process-card">
                     <CardContent className="p-8 text-center">

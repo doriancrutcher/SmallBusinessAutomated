@@ -70,7 +70,6 @@ export function initCircuitBackground() {
   state.created = true;
 
   // stacking context so background can sit at z index 0
-  const root = document.documentElement;
 
   // container
   const container = document.createElement("div");
@@ -100,7 +99,7 @@ export function initCircuitBackground() {
   state.svg = svg;
 
   // build several faint traces
-  const paths = generateCircuitPaths(w, h);
+  const paths = generateCircuitPaths();
   const unitScale = Math.max(w, h) / 100; // percent to units
   
   paths.forEach(raw => {
@@ -168,7 +167,7 @@ function scheduleCircuitFlow() {
   loop();
 }
 
-function generateCircuitPaths(W: number, H: number): string[] {
+function generateCircuitPaths(): string[] {
   // author as percents, sanitize will convert to units
   const p = (x: number, y: number, c1x: number, c1y: number, c2x: number, c2y: number, ex: number, ey: number) =>
     `M ${x}% ${y}% C ${c1x}% ${c1y}% ${c2x}% ${c2y}% ${ex}% ${ey}%`;

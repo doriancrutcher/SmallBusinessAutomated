@@ -1,4 +1,4 @@
-import { Mail, MessageCircle, Calendar, ArrowUp, Linkedin, Github } from "lucide-react";
+import { Mail, ArrowUp, Linkedin, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
 // SBA Logo
 const logo = '/SBA_logo_square.png';

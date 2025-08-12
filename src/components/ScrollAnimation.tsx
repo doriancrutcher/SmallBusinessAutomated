@@ -5,7 +5,6 @@ interface ScrollAnimationProps {
   children: ReactNode;
   direction?: 'up' | 'down' | 'left' | 'right' | 'scale';
   delay?: number;
-  duration?: number;
   className?: string;
 }
 
@@ -13,7 +12,6 @@ export function ScrollAnimation({
   children, 
   direction = 'up', 
   delay = 0,
-  duration = 0.6,
   className = ''
 }: ScrollAnimationProps) {
   const variants = {
@@ -29,12 +27,7 @@ export function ScrollAnimation({
       opacity: 1,
       y: 0,
       x: 0,
-      scale: 1,
-      transition: {
-        duration,
-        delay,
-        ease: [0.25, 0.25, 0.25, 0.75]
-      }
+      scale: 1
     }
   };
 
@@ -89,11 +82,7 @@ export function StaggerItem({ children, direction = 'up', className = '' }: {
       opacity: 1,
       y: 0,
       x: 0,
-      scale: 1,
-      transition: {
-        duration: 0.5,
-        ease: [0.25, 0.25, 0.25, 0.75]
-      }
+      scale: 1
     }
   };
 
