@@ -75,8 +75,12 @@ export function Header() {
         <nav className="relative bg-background/80 backdrop-blur-md rounded-full px-4 py-1.5 shadow-lg border border-border">
           {/* Progress bar */}
           <div 
-            className="absolute top-0 left-0 h-0.5 bg-secondary rounded-full transition-all duration-300 ease-out"
-            style={{ width: `${scrollProgress}%` }}
+            className="absolute top-0 h-0.5 bg-secondary rounded-full transition-all duration-300 ease-out"
+            style={{ 
+              left: '16px',
+              width: `calc(${scrollProgress}% - 32px)`,
+              maxWidth: 'calc(100% - 32px)'
+            }}
           />
 
           {/* Desktop Navigation */}
