@@ -1,50 +1,51 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Bot, Code, Users, Zap, MessageCircle, Calendar } from "lucide-react";
+import { Bot, Code, Users, Zap, MessageCircle, Calendar, Github, Linkedin, Mail } from "lucide-react";
+import { motion } from 'framer-motion';
 
 export function About() {
   const stats = [
     {
-      icon: <Bot className="w-6 h-6" />,
-      value: "10+",
-      label: "Agents Built",
-      description: "Custom AI solutions deployed"
+      icon: <Code className="w-6 h-6" />,
+      value: "5+",
+      label: "Years Experience",
+      description: "Full-stack development & relations"
     },
     {
       icon: <Users className="w-6 h-6" />,
-      value: "15+",
-      label: "Happy Clients",
-      description: "Businesses automated successfully"
+      value: "20+",
+      label: "Projects Completed",
+      description: "From concept to deployment"
     },
     {
       icon: <Zap className="w-6 h-6" />,
-      value: "500+", 
-      label: "Hours Saved",
-      description: "Per month across all clients"
+      value: "10x",
+      label: "Product Engagement",
+      description: "Increase in user activity"
     },
     {
-      icon: <Code className="w-6 h-6" />,
-      value: "5+",
-      label: "Years",
-      description: "Developer Relations experience"
+      icon: <Bot className="w-6 h-6" />,
+      value: "AI/ML",
+      label: "Specialization",
+      description: "Modern tech stack"
     }
   ];
 
   const expertise = [
     {
+      icon: <Code className="w-5 h-5" />,
+      title: "Full-Stack Development",
+      description: "React, Node.js, Python, and modern web technologies"
+    },
+    {
       icon: <Bot className="w-5 h-5" />,
-      title: "AI Agent Development",
-      description: "Custom agents using OpenAI, RelevanceAI, and other cutting-edge platforms"
+      title: "AI & Machine Learning", 
+      description: "Building intelligent applications and automation solutions"
     },
     {
       icon: <Zap className="w-5 h-5" />,
-      title: "Workflow Automation", 
-      description: "Zapier, Make.com, and custom API integrations to connect your tools"
-    },
-    {
-      icon: <Code className="w-5 h-5" />,
-      title: "System Integration",
-      description: "Connecting existing software and databases for seamless data flow"
+      title: "System Architecture",
+      description: "Designing scalable, maintainable software systems"
     }
   ];
 
@@ -55,37 +56,43 @@ export function About() {
       description: "Worked with hundreds of developers and businesses to implement technical solutions"
     },
     {
-      year: "2025",
-      title: "First AI Agent",
-      description: "Built my first business automation agent and saw the immediate impact"
+      year: "2023-2024",
+      title: "Audioh – Co-Founder & Product Technical Manager",
+      description: "Co-founded the first audiobook-book club app with friends. Built innovative features combining audio content with social reading experiences."
     },
     {
-      year: "2025",
-      title: "Small Business Automated",
-      description: "Launched to help small businesses leverage AI agents for growth"
+      year: "2024 - Today",
+      title: "STERIS – Technical Solutions Engineer (Medical Technology)",
+      description: "Worked with healthcare providers to deliver tailored technical solutions. Led on-site diagnostics, repairs, and preventive maintenance. Coordinated installation projects and ensured seamless integration, resulting in improved service delivery and client satisfaction."
     }
   ];
 
   return (
-    <section id="about" className="py-24 bg-muted/30">
+    <section id="about" className="min-h-screen flex items-center justify-center py-24 bg-muted/30">
       <div className="max-w-7xl mx-auto px-4">
-        <div className="text-center mb-16">
-          <Badge className="mb-6 px-4 py-2 bg-secondary/10 text-foreground border-secondary/20">
-            Who You're Working With
-          </Badge>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
-            Just Me —{' '}
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
+            Hi, I'm{' '}
             <span className="text-secondary">Dorian</span>
-          </h2>
+          </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            I'm a solo engineer who loves automation and helping business owners get their time back. 
-            You won't get passed around — you work directly with me.
+            I connect people and technology to turn ideas into solutions that make an impact.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid md:grid-cols-2 gap-8 lg:gap-16 items-center mb-20">
           {/* Left Column - About Content */}
-          <div className="space-y-8">
+          <motion.div 
+            className="space-y-8"
+            initial={{ opacity: 0, x: -100 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
             {/* Profile Card */}
             <Card className="border-2 border-secondary/20 shadow-lg">
               <CardContent className="p-8">
@@ -98,36 +105,34 @@ export function About() {
                   />
                   <div>
                     <h3 className="text-2xl font-bold text-foreground">Dorian</h3>
-                    <p className="text-lg text-secondary font-medium">AI Automation Engineer</p>
-                    <p className="text-sm text-muted-foreground">Solo founder, direct communication</p>
+                    <p className="text-lg text-secondary font-medium">Developer Relations</p>
+                    <p className="text-sm text-muted-foreground">AI Enthusiast & Problem Solver</p>
                   </div>
                 </div>
                 
                 <p className="text-muted-foreground leading-relaxed mb-6">
-                  After 5+ years in Developer Relations, I've seen firsthand how the right automation 
-                  can transform a business. I started Small Business Automated because I believe every 
-                  business owner deserves access to the same AI tools that big companies use.
+                  I help businesses turn ideas into solutions — combining 5+ years in development, developer relations, and a knack for creating engagement. From building custom applications to guiding teams through complex integrations, I focus on creating technology that's practical, scalable, and user-friendly. I've led live coding workshops for 50+ developers, brought creative solutions to hackathons that earned recognition, and grown YouTube engagement from hundreds to 10,000+.
                 </p>
 
                 <div className="space-y-4">
-                  <h4 className="font-semibold text-foreground">Why Work With Me?</h4>
+                  <h4 className="font-semibold text-foreground">What I Bring</h4>
                   <ul className="space-y-2">
                     <li className="flex items-start space-x-3">
                       <div className="w-2 h-2 bg-secondary rounded-full mt-2 flex-shrink-0"></div>
                       <span className="text-sm text-muted-foreground">
-                        <strong>Direct communication:</strong> No account managers or middlemen
+                        <strong>Technical range:</strong> Full-stack development and rapid prototyping with modern tools
                       </span>
                     </li>
                     <li className="flex items-start space-x-3">
                       <div className="w-2 h-2 bg-secondary rounded-full mt-2 flex-shrink-0"></div>
                       <span className="text-sm text-muted-foreground">
-                        <strong>Business-first approach:</strong> I understand operations, not just code
+                        <strong>Solution-oriented mindset:</strong> I bridge business needs and technical possibilities
                       </span>
                     </li>
                     <li className="flex items-start space-x-3">
                       <div className="w-2 h-2 bg-secondary rounded-full mt-2 flex-shrink-0"></div>
                       <span className="text-sm text-muted-foreground">
-                        <strong>Long-term partnership:</strong> I'm here for ongoing support and improvements
+                        <strong>People-first approach:</strong> I connect with clients through honesty and transparency, building trust that encourages them to explore and adopt the right solutions.
                       </span>
                     </li>
                   </ul>
@@ -137,89 +142,130 @@ export function About() {
 
             {/* Expertise */}
             <div>
-              <h4 className="text-xl font-bold text-foreground mb-6">What I Specialize In</h4>
+              <h4 className="text-xl font-bold text-foreground mb-6">Technical Skills</h4>
               <div className="space-y-4">
                 {expertise.map((skill, index) => (
-                  <Card key={index} className="hover:shadow-md transition-shadow duration-300">
-                    <CardContent className="p-4">
-                      <div className="flex items-start space-x-3">
-                        <div className="w-10 h-10 bg-secondary/20 rounded-lg flex items-center justify-center text-secondary flex-shrink-0">
-                          {skill.icon}
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, x: -50 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
+                  >
+                    <Card className="hover:shadow-md transition-shadow duration-300">
+                      <CardContent className="p-4">
+                        <div className="flex items-start space-x-3">
+                          <div className="w-10 h-10 bg-secondary/20 rounded-lg flex items-center justify-center text-secondary flex-shrink-0">
+                            {skill.icon}
+                          </div>
+                          <div>
+                            <h5 className="font-semibold text-foreground mb-1">{skill.title}</h5>
+                            <p className="text-sm text-muted-foreground">{skill.description}</p>
+                          </div>
                         </div>
-                        <div>
-                          <h5 className="font-semibold text-foreground mb-1">{skill.title}</h5>
-                          <p className="text-sm text-muted-foreground">{skill.description}</p>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
+                      </CardContent>
+                    </Card>
+                  </motion.div>
                 ))}
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Column - Stats & Timeline */}
-          <div className="space-y-8">
+          <motion.div 
+            className="space-y-8"
+            initial={{ opacity: 0, x: 100 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+          >
             {/* Stats Grid */}
             <div className="grid grid-cols-2 gap-6">
               {stats.map((stat, index) => (
-                <Card key={index} className="text-center hover:shadow-lg transition-shadow duration-300">
-                  <CardContent className="p-6">
-                    <div className="w-12 h-12 bg-secondary/20 rounded-xl flex items-center justify-center text-secondary mx-auto mb-4">
-                      {stat.icon}
-                    </div>
-                    <div className="text-3xl font-bold text-foreground mb-1">{stat.value}</div>
-                    <div className="font-semibold text-sm mb-2">{stat.label}</div>
-                    <div className="text-xs text-muted-foreground">{stat.description}</div>
-                  </CardContent>
-                </Card>
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
+                >
+                  <Card className="text-center hover:shadow-lg transition-shadow duration-300">
+                    <CardContent className="p-6">
+                      <div className="w-12 h-12 bg-secondary/20 rounded-xl flex items-center justify-center text-secondary mx-auto mb-4">
+                        {stat.icon}
+                      </div>
+                      <div className="text-3xl font-bold text-foreground mb-1">{stat.value}</div>
+                      <div className="font-semibold text-sm mb-2">{stat.label}</div>
+                      <div className="text-xs text-muted-foreground">{stat.description}</div>
+                    </CardContent>
+                  </Card>
+                </motion.div>
               ))}
             </div>
 
             {/* Timeline */}
-            <Card>
-              <CardContent className="p-6">
-                <h4 className="font-semibold text-foreground mb-6">My Journey</h4>
-                <div className="space-y-6">
-                  {timeline.map((item, index) => (
-                    <div key={index} className="flex space-x-4">
-                      <div className="flex flex-col items-center">
-                        <div className="w-3 h-3 bg-secondary rounded-full"></div>
-                        {index < timeline.length - 1 && <div className="w-px h-12 bg-secondary/30 mt-2"></div>}
-                      </div>
-                      <div className="flex-grow">
-                        <div className="flex items-center space-x-2 mb-1">
-                          <span className="text-sm font-semibold text-secondary">{item.year}</span>
-                          <span className="text-sm font-semibold text-foreground">{item.title}</span>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 1.2 }}
+            >
+              <Card>
+                <CardContent className="p-6">
+                  <h4 className="font-semibold text-foreground mb-6">My Journey</h4>
+                  <div className="space-y-6">
+                    {timeline.map((item, index) => (
+                      <motion.div 
+                        key={index} 
+                        className="flex space-x-4"
+                        initial={{ opacity: 0, x: 30 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.6, delay: 1.4 + index * 0.1 }}
+                      >
+                        <div className="flex flex-col items-center">
+                          <div className="w-3 h-3 bg-secondary rounded-full"></div>
+                          {index < timeline.length - 1 && <div className="w-px h-12 bg-secondary/30 mt-2"></div>}
                         </div>
-                        <p className="text-sm text-muted-foreground">{item.description}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+                        <div className="flex-grow">
+                          <div className="flex items-center space-x-2 mb-1">
+                            <span className="text-sm font-semibold text-secondary">{item.year}</span>
+                            <span className="text-sm font-semibold text-foreground">{item.title}</span>
+                          </div>
+                          <p className="text-sm text-muted-foreground">{item.description}</p>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
 
             {/* Contact Links */}
-            <Card className="bg-gradient-to-r from-secondary/5 to-primary/5 border border-secondary/20">
-              <CardContent className="p-6 text-center">
-                <h4 className="font-semibold text-foreground mb-4">Let's Connect</h4>
-                <div className="flex justify-center space-x-4">
-                  <button className="flex items-center space-x-2 px-4 py-2 bg-secondary/10 rounded-full hover:bg-secondary/20 transition-colors">
-                    <MessageCircle className="w-4 h-4 text-secondary" />
-                    <span className="text-sm text-foreground">LinkedIn</span>
-                  </button>
-                  <button 
-                    onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                    className="flex items-center space-x-2 px-4 py-2 bg-secondary/10 rounded-full hover:bg-secondary/20 transition-colors"
-                  >
-                    <Calendar className="w-4 h-4 text-secondary" />
-                    <span className="text-sm text-foreground">Book a Call</span>
-                  </button>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 1.6 }}
+            >
+              <Card className="bg-gradient-to-r from-secondary/5 to-primary/5 border border-secondary/20">
+                <CardContent className="p-6 text-center">
+                  <h4 className="font-semibold text-foreground mb-4">Let's Connect</h4>
+                  <div className="flex justify-center space-x-4">
+                    <button className="flex items-center space-x-2 px-4 py-2 bg-secondary/10 rounded-full hover:bg-secondary/20 transition-colors">
+                      <Linkedin className="w-4 h-4 text-secondary" />
+                      <span className="text-sm text-foreground">LinkedIn</span>
+                    </button>
+                    <button className="flex items-center space-x-2 px-4 py-2 bg-secondary/10 rounded-full hover:bg-secondary/20 transition-colors">
+                      <Github className="w-4 h-4 text-secondary" />
+                      <span className="text-sm text-foreground">GitHub</span>
+                    </button>
+                    <button 
+                      onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                      className="flex items-center space-x-2 px-4 py-2 bg-secondary/10 rounded-full hover:bg-secondary/20 transition-colors"
+                    >
+                      <Mail className="w-4 h-4 text-secondary" />
+                      <span className="text-sm text-foreground">Email Me</span>
+                    </button>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
     </section>

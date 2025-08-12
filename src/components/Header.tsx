@@ -1,21 +1,21 @@
 import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
-import { Menu, X, Bot } from "lucide-react";
-// SBA Logo
+import { Menu, X, Code } from "lucide-react";
+// Portfolio Logo
 const logo = '/SBA_logo_square.png';
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
-  const [activeSection, setActiveSection] = useState('hero');
+  const [activeSection, setActiveSection] = useState('about');
 
   const sections = [
-    { id: 'hero', label: 'Home' },
-    { id: 'why-agents', label: 'Why Agents' },
-    { id: 'how-it-works', label: 'Process' },
-    { id: 'case-studies', label: 'Results' },
-    { id: 'services', label: 'Services' },
     { id: 'about', label: 'About' },
+    { id: 'hero', label: 'Work' },
+    { id: 'services', label: 'Skills' },
+    { id: 'case-studies', label: 'Projects' },
+    { id: 'how-it-works', label: 'Process' },
+    { id: 'why-agents', label: 'Experience' },
     { id: 'contact', label: 'Contact' }
   ];
 
@@ -33,7 +33,7 @@ export function Header() {
 
       // Check if we're at the top of the page
       if (window.scrollY < 100) {
-        setActiveSection('hero');
+        setActiveSection('about');
         return;
       }
 
@@ -65,7 +65,7 @@ export function Header() {
       <div className="fixed top-6 left-6 z-50 flex items-center space-x-2">
         <img 
           src={logo} 
-          alt="Small Business Automated Logo" 
+          alt="Portfolio Logo" 
           className="w-10 h-10 object-contain"
         />
       </div>

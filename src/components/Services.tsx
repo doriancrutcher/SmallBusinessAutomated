@@ -1,59 +1,59 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Search, Bot, Zap, Headphones, ArrowRight } from "lucide-react";
+import { Code, Bot, Zap, Database, Globe, Smartphone, ArrowRight } from "lucide-react";
 
 export function Services() {
-  const services = [
+  const skills = [
     {
-      icon: <Search className="w-8 h-8" />,
-      title: "Workflow Audits",
-      description: "I'll spend time understanding your business and identify the biggest automation opportunities",
-      features: [
-        "30-minute free consultation",
-        "Process mapping & analysis", 
-        "ROI projections for each opportunity",
-        "Prioritized action plan"
+      icon: <Code className="w-8 h-8" />,
+      title: "Frontend Development",
+      description: "Building responsive, interactive user interfaces with modern frameworks and best practices",
+      technologies: [
+        "React & Next.js",
+        "TypeScript & JavaScript", 
+        "Tailwind CSS & Styled Components",
+        "Responsive Design & Accessibility"
       ],
-      pricing: "Free for first audit",
+      level: "Expert",
+      popular: true
+    },
+    {
+      icon: <Database className="w-8 h-8" />,
+      title: "Backend Development", 
+      description: "Creating robust server-side applications and APIs that power modern web applications",
+      technologies: [
+        "Node.js & Express",
+        "Python & FastAPI",
+        "PostgreSQL & MongoDB",
+        "RESTful APIs & GraphQL"
+      ],
+      level: "Advanced",
       popular: false
     },
     {
       icon: <Bot className="w-8 h-8" />,
-      title: "Custom Agent Development", 
-      description: "From simple task automation to complex decision-making agents - built specifically for your workflow",
-      features: [
-        "Fully custom AI agents",
-        "Integration with your existing tools",
-        "Testing environment before go-live",
-        "Performance monitoring & optimization"
+      title: "AI & Machine Learning",
+      description: "Integrating intelligent features and automation into applications using cutting-edge AI",
+      technologies: [
+        "OpenAI API Integration",
+        "Natural Language Processing",
+        "Machine Learning Models",
+        "Automation & Workflows"
       ],
-      pricing: "Starting at $1,500",
-      popular: true
-    },
-    {
-      icon: <Zap className="w-8 h-8" />,
-      title: "Zapier + Notion Integrations",
-      description: "Connect your tools and create automated workflows that keep your data organized and accessible",
-      features: [
-        "Multi-platform integrations", 
-        "Custom Notion databases",
-        "Automated reporting dashboards",
-        "Data sync & backup systems"
-      ],
-      pricing: "Starting at $500",
+      level: "Intermediate",
       popular: false
     },
     {
-      icon: <Headphones className="w-8 h-8" />,
-      title: "Ongoing Support",
-      description: "Because automation isn't set-and-forget. I monitor, maintain, and improve your agents over time",
-      features: [
-        "24/7 agent monitoring",
-        "Monthly performance reports",
-        "Continuous improvements",
-        "Priority support & updates"
+      icon: <Globe className="w-8 h-8" />,
+      title: "DevOps & Deployment",
+      description: "Setting up reliable deployment pipelines and infrastructure for scalable applications",
+      technologies: [
+        "Docker & Containerization",
+        "AWS & Cloud Services",
+        "CI/CD Pipelines",
+        "Performance Optimization"
       ],
-      pricing: "$200-500/month",
+      level: "Intermediate",
       popular: false
     }
   ];
@@ -63,74 +63,74 @@ export function Services() {
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-16">
           <Badge className="mb-6 px-4 py-2 bg-secondary/10 text-foreground border-secondary/20">
-            What I Offer
+            Technical Expertise
           </Badge>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
-            What I Can Build
+            Skills & Technologies
             <br />
-            <span className="text-secondary">For You</span>
+            <span className="text-secondary">I Master</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Whether you need a simple automation or a complex AI agent, 
-            I'll work directly with you to build exactly what your business needs.
+            From frontend frameworks to backend systems, I bring a comprehensive skill set 
+            to every project. Here's what I can build for you.
           </p>
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
-          {services.map((service, index) => (
+          {skills.map((skill, index) => (
             <Card 
               key={index} 
               className={`relative h-full hover:shadow-xl transition-all duration-300 hover:-translate-y-1 ${
-                service.popular ? 'border-2 border-secondary shadow-lg glow-lime' : 'hover:border-secondary/30'
+                skill.popular ? 'border-2 border-secondary shadow-lg glow-lime' : 'hover:border-secondary/30'
               }`}
             >
-              {service.popular && (
+              {skill.popular && (
                 <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-secondary text-foreground px-4 py-1">
-                  Most Popular
+                  Core Strength
                 </Badge>
               )}
               
               <CardHeader>
                 <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-4 ${
-                  service.popular ? 'bg-secondary/20' : 'bg-primary/5'
+                  skill.popular ? 'bg-secondary/20' : 'bg-primary/5'
                 }`}>
-                  <div className={service.popular ? 'text-secondary' : 'text-primary'}>
-                    {service.icon}
+                  <div className={skill.popular ? 'text-secondary' : 'text-primary'}>
+                    {skill.icon}
                   </div>
                 </div>
-                <CardTitle className="text-xl">{service.title}</CardTitle>
+                <CardTitle className="text-xl">{skill.title}</CardTitle>
                 <div className={`text-lg font-semibold ${
-                  service.popular ? 'text-secondary' : 'text-primary'
+                  skill.popular ? 'text-secondary' : 'text-primary'
                 }`}>
-                  {service.pricing}
+                  {skill.level}
                 </div>
               </CardHeader>
               
               <CardContent className="space-y-4">
                 <p className="text-muted-foreground leading-relaxed">
-                  {service.description}
+                  {skill.description}
                 </p>
                 
                 <ul className="space-y-2">
-                  {service.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-start text-sm text-muted-foreground">
+                  {skill.technologies.map((tech, techIndex) => (
+                    <li key={techIndex} className="flex items-start text-sm text-muted-foreground">
                       <div className={`w-1.5 h-1.5 rounded-full mr-3 mt-2 flex-shrink-0 ${
-                        service.popular ? 'bg-secondary' : 'bg-primary'
+                        skill.popular ? 'bg-secondary' : 'bg-primary'
                       }`}></div>
-                      {feature}
+                      {tech}
                     </li>
                   ))}
                 </ul>
                 
                 <button 
-                  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                  onClick={() => document.getElementById('case-studies')?.scrollIntoView({ behavior: 'smooth' })}
                   className={`w-full mt-6 pill-button group transition-all duration-300 flex items-center justify-center ${
-                    service.popular 
+                    skill.popular 
                       ? 'pill-button-primary hover-glow-lime' 
                       : 'pill-button-secondary hover:bg-secondary/10'
                   }`}
                 >
-                  <span>Get Started</span>
+                  <span>See Examples</span>
                   <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                 </button>
               </CardContent>
@@ -142,17 +142,17 @@ export function Services() {
         <div className="mt-20 text-center">
           <div className="bg-gradient-to-r from-secondary/5 to-primary/5 rounded-3xl p-12 border border-secondary/10">
             <h3 className="text-2xl font-bold text-foreground mb-4">
-              Not Sure Where to Start?
+              Ready to Build Something Amazing?
             </h3>
             <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Every project begins with a free workflow audit. I'll help you identify 
-              the biggest opportunities and create a plan that makes sense for your budget.
+              I'm always excited to take on new challenges and bring innovative ideas to life. 
+              Let's discuss your project and see how we can work together.
             </p>
             <button 
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
               className="pill-button pill-button-primary hover-glow-lime text-lg px-10 py-4 flex items-center justify-center"
             >
-              <span>Book Free Audit</span>
+              <span>Start a Project</span>
               <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
             </button>
           </div>

@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Bot, Sparkles, Zap } from "lucide-react";
+import { ArrowRight, Code, Sparkles, Zap, Github, ExternalLink } from "lucide-react";
 import { ScrollAnimation, StaggerContainer, StaggerItem } from "./ScrollAnimation";
 import { motion } from 'framer-motion';
 
@@ -20,22 +20,22 @@ export function Hero() {
             <div className="space-y-6">
               <ScrollAnimation direction="up" delay={0.2}>
                 <div className="inline-flex items-center px-4 py-2 bg-secondary/10 rounded-full border border-secondary/20">
-                  <Bot className="w-4 h-4 mr-2 text-secondary" />
-                  <span className="text-sm font-medium text-foreground">AI Agents for Small Business</span>
+                  <Code className="w-4 h-4 mr-2 text-secondary" />
+                  <span className="text-sm font-medium text-foreground">Full-Stack Developer</span>
                 </div>
               </ScrollAnimation>
               
               <ScrollAnimation direction="up" delay={0.4}>
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
-                  Let AI Agents Handle the{' '}
-                  <span className="text-secondary">Busywork</span>
-                </h1>
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
+                  Building{' '}
+                  <span className="text-secondary">Digital Solutions</span>
+                </h2>
               </ScrollAnimation>
               
               <ScrollAnimation direction="up" delay={0.6}>
                 <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl">
-                  I help small business owners automate repetitive tasks and scale smarter — 
-                  using custom-built agents designed just for your workflow.
+                  I create modern web applications, intelligent systems, and innovative solutions 
+                  that help businesses and users achieve their goals. Let me turn your ideas into reality.
                 </p>
               </ScrollAnimation>
             </div>
@@ -44,19 +44,19 @@ export function Hero() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button 
                   size="lg" 
-                  onClick={scrollToContact}
+                  onClick={() => document.getElementById('case-studies')?.scrollIntoView({ behavior: 'smooth' })}
                   className="pill-button pill-button-primary hover-glow-lime group text-lg px-10 py-4"
                 >
-                  Book a Free Workflow Audit
+                  View My Work
                   <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
                 </Button>
                 <Button 
                   variant="outline" 
                   size="lg"
-                  onClick={() => document.getElementById('why-agents')?.scrollIntoView({ behavior: 'smooth' })}
+                  onClick={scrollToContact}
                   className="pill-button text-lg px-10 py-4 border-2"
                 >
-                  Learn About Agents
+                  Get In Touch
                 </Button>
               </div>
             </ScrollAnimation>
@@ -65,10 +65,10 @@ export function Hero() {
               <StaggerItem>
                 <div className="text-center">
                   <div className="flex items-center justify-center mb-2">
-                    <Sparkles className="w-6 h-6 text-secondary" />
+                    <Code className="w-6 h-6 text-secondary" />
                   </div>
-                  <div className="text-2xl font-bold text-foreground">24/7</div>
-                  <div className="text-sm text-muted-foreground">Always Working</div>
+                  <div className="text-2xl font-bold text-foreground">20+</div>
+                  <div className="text-sm text-muted-foreground">Projects Built</div>
                 </div>
               </StaggerItem>
               <StaggerItem>
@@ -76,17 +76,17 @@ export function Hero() {
                   <div className="flex items-center justify-center mb-2">
                     <Zap className="w-6 h-6 text-secondary" />
                   </div>
-                  <div className="text-2xl font-bold text-foreground">10+</div>
-                  <div className="text-sm text-muted-foreground">Agents Built</div>
+                  <div className="text-2xl font-bold text-foreground">5+</div>
+                  <div className="text-sm text-muted-foreground">Years Experience</div>
                 </div>
               </StaggerItem>
               <StaggerItem>
                 <div className="text-center">
                   <div className="flex items-center justify-center mb-2">
-                    <Bot className="w-6 h-6 text-secondary" />
+                    <Sparkles className="w-6 h-6 text-secondary" />
                   </div>
-                  <div className="text-2xl font-bold text-foreground">Custom</div>
-                  <div className="text-sm text-muted-foreground">Solutions</div>
+                  <div className="text-2xl font-bold text-foreground">100%</div>
+                  <div className="text-sm text-muted-foreground">Client Satisfaction</div>
                 </div>
               </StaggerItem>
             </StaggerContainer>
@@ -96,7 +96,7 @@ export function Hero() {
           <ScrollAnimation direction="right" delay={0.3}>
             <div className="relative">
               <div className="relative bg-gradient-to-br from-secondary/5 to-primary/5 rounded-3xl p-8 border border-secondary/10">
-                {/* Placeholder for agent demo or animated GIF */}
+                {/* Portfolio showcase */}
                 <StaggerContainer className="space-y-6">
                   <StaggerItem>
                     <motion.div 
@@ -106,24 +106,20 @@ export function Hero() {
                     >
                       <div className="flex items-center space-x-3 mb-4">
                         <div className="w-10 h-10 bg-secondary/20 rounded-full flex items-center justify-center">
-                          <Bot className="w-6 h-6 text-secondary" />
+                          <Code className="w-6 h-6 text-secondary" />
                         </div>
                         <div>
-                          <h4 className="font-semibold">Email Agent</h4>
-                          <p className="text-sm text-muted-foreground">Processing new inquiries...</p>
+                          <h4 className="font-semibold">E-Commerce Platform</h4>
+                          <p className="text-sm text-muted-foreground">React + Node.js + MongoDB</p>
                         </div>
                       </div>
                       <div className="space-y-2">
-                        <div className="w-full bg-muted rounded-lg h-2">
-                          <motion.div 
-                            className="bg-secondary h-full rounded-lg"
-                            initial={{ width: 0 }}
-                            whileInView={{ width: '75%' }}
-                            transition={{ duration: 1.5, delay: 1 }}
-                            viewport={{ once: true }}
-                          />
+                        <div className="flex space-x-2">
+                          <span className="text-xs bg-secondary/20 text-secondary px-2 py-1 rounded">React</span>
+                          <span className="text-xs bg-secondary/20 text-secondary px-2 py-1 rounded">Node.js</span>
+                          <span className="text-xs bg-secondary/20 text-secondary px-2 py-1 rounded">MongoDB</span>
                         </div>
-                        <p className="text-xs text-muted-foreground">Categorized 12 emails, scheduled 3 follow-ups</p>
+                        <p className="text-xs text-muted-foreground">Full-stack e-commerce solution with payment integration</p>
                       </div>
                     </motion.div>
                   </StaggerItem>
@@ -139,21 +135,17 @@ export function Hero() {
                           <Zap className="w-6 h-6 text-secondary" />
                         </div>
                         <div>
-                          <h4 className="font-semibold">Scheduling Agent</h4>
-                          <p className="text-sm text-muted-foreground">Optimizing calendar...</p>
+                          <h4 className="font-semibold">AI Chat Application</h4>
+                          <p className="text-sm text-muted-foreground">Python + OpenAI + FastAPI</p>
                         </div>
                       </div>
                       <div className="space-y-2">
-                        <div className="w-full bg-muted rounded-lg h-2">
-                          <motion.div 
-                            className="bg-secondary h-full rounded-lg"
-                            initial={{ width: 0 }}
-                            whileInView={{ width: '85%' }}
-                            transition={{ duration: 1.5, delay: 1.3 }}
-                            viewport={{ once: true }}
-                          />
+                        <div className="flex space-x-2">
+                          <span className="text-xs bg-secondary/20 text-secondary px-2 py-1 rounded">Python</span>
+                          <span className="text-xs bg-secondary/20 text-secondary px-2 py-1 rounded">OpenAI</span>
+                          <span className="text-xs bg-secondary/20 text-secondary px-2 py-1 rounded">FastAPI</span>
                         </div>
-                        <p className="text-xs text-muted-foreground">Booked 5 appointments, sent confirmations</p>
+                        <p className="text-xs text-muted-foreground">Intelligent chatbot with natural language processing</p>
                       </div>
                     </motion.div>
                   </StaggerItem>
@@ -169,21 +161,17 @@ export function Hero() {
                           <Sparkles className="w-6 h-6 text-secondary" />
                         </div>
                         <div>
-                          <h4 className="font-semibold">Data Agent</h4>
-                          <p className="text-sm text-muted-foreground">Analyzing performance...</p>
+                          <h4 className="font-semibold">Task Management App</h4>
+                          <p className="text-sm text-muted-foreground">Vue.js + Express + PostgreSQL</p>
                         </div>
                       </div>
                       <div className="space-y-2">
-                        <div className="w-full bg-muted rounded-lg h-2">
-                          <motion.div 
-                            className="bg-secondary h-full rounded-lg"
-                            initial={{ width: 0 }}
-                            whileInView={{ width: '100%' }}
-                            transition={{ duration: 1.5, delay: 1.6 }}
-                            viewport={{ once: true }}
-                          />
+                        <div className="flex space-x-2">
+                          <span className="text-xs bg-secondary/20 text-secondary px-2 py-1 rounded">Vue.js</span>
+                          <span className="text-xs bg-secondary/20 text-secondary px-2 py-1 rounded">Express</span>
+                          <span className="text-xs bg-secondary/20 text-secondary px-2 py-1 rounded">PostgreSQL</span>
                         </div>
-                        <p className="text-xs text-muted-foreground">Generated weekly report, identified trends</p>
+                        <p className="text-xs text-muted-foreground">Collaborative task management with real-time updates</p>
                       </div>
                     </motion.div>
                   </StaggerItem>
@@ -203,7 +191,7 @@ export function Hero() {
                   ease: "easeInOut"
                 }}
               >
-                <Bot className="w-6 h-6 text-secondary" />
+                <Github className="w-6 h-6 text-secondary" />
               </motion.div>
               <motion.div 
                 className="absolute -bottom-4 -left-4 w-8 h-8 bg-secondary/10 rounded-full flex items-center justify-center"
@@ -217,7 +205,7 @@ export function Hero() {
                   ease: "easeInOut"
                 }}
               >
-                <Sparkles className="w-4 h-4 text-secondary" />
+                <ExternalLink className="w-4 h-4 text-secondary" />
               </motion.div>
             </div>
           </ScrollAnimation>
