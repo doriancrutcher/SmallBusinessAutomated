@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
-import { Menu, X, Code } from "lucide-react";
+import { Menu, X } from "lucide-react";
 // Portfolio Logo
 const logo = '/SBA_logo_square.png';
 

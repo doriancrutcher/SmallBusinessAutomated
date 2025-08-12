@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -270,7 +270,7 @@ export function Contact() {
                         <Button 
                           variant="outline"
                           className="w-full pill-button group hover:bg-secondary/10 hover:border-secondary/30"
-                          onClick={() => window.open('https://linkedin.com', '_blank')}
+                          onClick={() => window.open('https://www.linkedin.com/in/dorian-crutcher/', '_blank')}
                         >
                           <MessageCircle className="w-4 h-4 mr-2" />
                           Message on LinkedIn

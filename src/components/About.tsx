@@ -1,6 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Bot, Code, Users, Zap, MessageCircle, Calendar, Github, Linkedin, Mail } from "lucide-react";
+import { Bot, Code, Users, Zap, Github, Linkedin, Mail, Presentation } from "lucide-react";
 import { motion } from 'framer-motion';
 
 export function About() {
@@ -24,9 +23,9 @@ export function About() {
       description: "Increase in user activity"
     },
     {
-      icon: <Bot className="w-6 h-6" />,
-      value: "AI/ML",
-      label: "Specialization",
+      icon: <Presentation className="w-6 h-6" />,
+      value: "50+",
+      label: "Workshops Taught",
       description: "Modern tech stack"
     }
   ];
@@ -142,7 +141,7 @@ export function About() {
 
             {/* Expertise */}
             <div>
-              <h4 className="text-xl font-bold text-foreground mb-6">Technical Skills</h4>
+              <h4 className="text-xl font-bold text-foreground mb-6">Custom Solutions that Scale</h4>
               <div className="space-y-4">
                 {expertise.map((skill, index) => (
                   <motion.div
@@ -246,16 +245,22 @@ export function About() {
                 <CardContent className="p-6 text-center">
                   <h4 className="font-semibold text-foreground mb-4">Let's Connect</h4>
                   <div className="flex justify-center space-x-4">
-                    <button className="flex items-center space-x-2 px-4 py-2 bg-secondary/10 rounded-full hover:bg-secondary/20 transition-colors">
+                    <button 
+                      onClick={() => window.open('https://www.linkedin.com/in/dorian-crutcher/', '_blank')}
+                      className="flex items-center space-x-2 px-4 py-2 bg-secondary/10 rounded-full hover:bg-secondary/20 transition-colors"
+                    >
                       <Linkedin className="w-4 h-4 text-secondary" />
                       <span className="text-sm text-foreground">LinkedIn</span>
                     </button>
-                    <button className="flex items-center space-x-2 px-4 py-2 bg-secondary/10 rounded-full hover:bg-secondary/20 transition-colors">
+                    <button 
+                      onClick={() => window.open('https://github.com/doriancrutcher', '_blank')}
+                      className="flex items-center space-x-2 px-4 py-2 bg-secondary/10 rounded-full hover:bg-secondary/20 transition-colors"
+                    >
                       <Github className="w-4 h-4 text-secondary" />
                       <span className="text-sm text-foreground">GitHub</span>
                     </button>
                     <button 
-                      onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                      onClick={() => window.open('mailto:crutcherdorian@gmail.com')}
                       className="flex items-center space-x-2 px-4 py-2 bg-secondary/10 rounded-full hover:bg-secondary/20 transition-colors"
                     >
                       <Mail className="w-4 h-4 text-secondary" />

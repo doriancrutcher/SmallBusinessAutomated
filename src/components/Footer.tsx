@@ -96,7 +96,7 @@ export function Footer() {
                 <span>Calendly</span>
               </button>
               <button 
-                onClick={() => window.open('https://linkedin.com', '_blank')}
+                onClick={() => window.open('https://www.linkedin.com/in/dorian-crutcher/', '_blank')}
                 className="flex items-center space-x-3 text-primary-foreground/70 hover:text-primary-foreground transition-colors group"
               >
                 <MessageCircle className="w-4 h-4" />
