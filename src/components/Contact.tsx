@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Badge } from "@/components/ui/badge";
-import { Calendar, MessageCircle, CheckCircle, ArrowRight, Clock, Zap, Bot } from "lucide-react";
+import { Calendar, MessageCircle, CheckCircle, ArrowRight, Clock, Zap, Bot, Mail } from "lucide-react";
 import { ScrollAnimation, StaggerContainer, StaggerItem } from "./ScrollAnimation";
 import { motion } from 'framer-motion';
 
@@ -45,18 +45,18 @@ export function Contact() {
   const benefits = [
     {
       icon: <Clock className="w-5 h-5" />,
-      title: "Free 30-Minute Audit",
-      description: "I'll analyze your workflow and identify automation opportunities"
+      title: "Quick Response",
+      description: "I typically reply within 24 hours"
     },
     {
       icon: <Zap className="w-5 h-5" />,
-      title: "Custom Solution Design",
-      description: "Get a tailored plan with clear ROI projections"
+      title: "Flexible Formats",
+      description: "Happy to chat via video, voice, or email"
     },
     {
       icon: <Bot className="w-5 h-5" />,
-      title: "No Obligation",
-      description: "Valuable insights even if we don't work together"
+      title: "Open Conversation",
+      description: "No pressure, just an opportunity to connect"
     }
   ];
 
@@ -66,20 +66,20 @@ export function Contact() {
         <div className="text-center mb-16">
           <ScrollAnimation direction="up">
             <Badge className="mb-6 px-4 py-2 bg-secondary/10 text-foreground border-secondary/20">
-              Ready to Start?
+              Let's Connect
             </Badge>
           </ScrollAnimation>
           <ScrollAnimation direction="up" delay={0.2}>
             <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
-              Let's Build Something That
+              Open to Opportunities,
               <br />
-              <span className="text-secondary">Saves You Hours</span>
+              <span className="text-secondary">Collaborations, and Conversations</span>
             </h2>
           </ScrollAnimation>
           <ScrollAnimation direction="up" delay={0.4}>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Most small business owners are surprised by how much time they can save with 
-              the right automation. Let's find out what's possible for your business.
+              If you'd like to talk about a role, collaborate on a project, or just exchange ideas, 
+              I'd love to hear from you. Let's build something great together.
             </p>
           </ScrollAnimation>
         </div>
@@ -90,10 +90,10 @@ export function Contact() {
             <Card className="shadow-xl border-2 border-secondary/10">
               <CardHeader>
                 <CardTitle className="text-2xl text-center">
-                  Book Your Free Workflow Audit
+                  Send Me a Message
                 </CardTitle>
                 <p className="text-muted-foreground text-center">
-                  Tell me about your business and what's taking up too much of your time
+                  Tell me a little about what you'd like to discuss
                 </p>
               </CardHeader>
               <CardContent>
@@ -111,15 +111,14 @@ export function Contact() {
                     >
                       <CheckCircle className="w-20 h-20 text-secondary mx-auto mb-6" />
                     </motion.div>
-                    <h3 className="text-2xl font-bold text-foreground mb-4">Thanks!</h3>
+                    <h3 className="text-2xl font-bold text-foreground mb-4">Message Sent!</h3>
                     <p className="text-muted-foreground mb-6">
-                      I've got your message and will get back to you within 24 hours. 
-                      In the meantime, I'm already thinking about how to help automate your workflow.
+                      Thanks for reaching out! I've got your message and will get back to you within 24 hours. 
+                      I'm looking forward to our conversation.
                     </p>
                     <div className="bg-secondary/10 rounded-xl p-4 border border-secondary/20">
                       <p className="text-sm text-secondary-foreground">
-                        <strong>What's next:</strong> I'll review your submission and send you a 
-                        calendar link to schedule our free audit call.
+                        <strong>What's next:</strong> I'll review your message and respond with the best way to continue our discussion.
                       </p>
                     </div>
                   </motion.div>
@@ -157,26 +156,27 @@ export function Contact() {
 
                     <ScrollAnimation direction="up" delay={0.4}>
                       <div>
-                        <Label htmlFor="company">Company/Business Name</Label>
+                        <Label htmlFor="company">Company/Organization</Label>
                         <Input
                           id="company"
                           name="company"
                           value={formData.company}
                           onChange={handleInputChange}
                           className="mt-2 rounded-xl border-border/50 focus:border-secondary/50"
+                          placeholder="Where you work (optional)"
                         />
                       </div>
                     </ScrollAnimation>
 
                     <ScrollAnimation direction="up" delay={0.6}>
                       <div>
-                        <Label htmlFor="task">What would you like to automate? *</Label>
+                        <Label htmlFor="task">Message *</Label>
                         <Textarea
                           id="task"
                           name="task"
                           value={formData.task}
                           onChange={handleInputChange}
-                          placeholder="Describe a task or process that takes up too much of your time. For example: 'I spend 2 hours every Monday manually updating our client database from emails and spreadsheets...'"
+                          placeholder="What would you like to discuss? A potential role, collaboration opportunity, or just want to connect? I'd love to hear from you!"
                           rows={5}
                           className="mt-2 rounded-xl border-border/50 focus:border-secondary/50"
                           required
@@ -193,14 +193,14 @@ export function Contact() {
                           type="submit" 
                           className="w-full pill-button pill-button-primary hover-glow-lime text-lg py-6 group"
                         >
-                          Book My Free Audit
+                          Send Message
                           <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
                         </Button>
                       </motion.div>
                     </ScrollAnimation>
 
                     <p className="text-xs text-muted-foreground text-center">
-                      No spam, no sales pressure. Just valuable insights about your automation opportunities.
+                      I'll get back to you within 24 hours. Looking forward to connecting!
                     </p>
                   </form>
                 )}
@@ -214,7 +214,7 @@ export function Contact() {
             <ScrollAnimation direction="right">
               <Card>
                 <CardContent className="p-8">
-                  <h3 className="text-xl font-bold text-foreground mb-6">What You'll Get</h3>
+                  <h3 className="text-xl font-bold text-foreground mb-6">What to Expect</h3>
                   <StaggerContainer className="space-y-4">
                     {benefits.map((benefit, index) => (
                       <StaggerItem key={index}>
@@ -242,9 +242,9 @@ export function Contact() {
             <ScrollAnimation direction="right" delay={0.2}>
               <Card className="bg-gradient-to-r from-secondary/5 to-primary/5 border border-secondary/20">
                 <CardContent className="p-8 text-center">
-                  <h3 className="text-xl font-bold text-foreground mb-4">Prefer Another Way?</h3>
+                  <h3 className="text-xl font-bold text-foreground mb-4">Other Ways to Connect</h3>
                   <p className="text-muted-foreground mb-6">
-                    No problem! Reach out however works best for you.
+                    Prefer to reach out directly? Here are a few options:
                   </p>
                   <StaggerContainer className="space-y-4">
                     <StaggerItem>
@@ -257,7 +257,23 @@ export function Contact() {
                           onClick={() => window.open('https://calendly.com', '_blank')}
                         >
                           <Calendar className="w-4 h-4 mr-2" />
-                          Book on Calendly
+                           Book a Chat
+                          <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                        </Button>
+                      </motion.div>
+                    </StaggerItem>
+                    <StaggerItem>
+                      <motion.div
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        <Button 
+                          variant="outline"
+                          className="w-full pill-button group hover:bg-secondary/10 hover:border-secondary/30"
+                          onClick={() => window.open('mailto:crutcherdorian@gmail.com')}
+                        >
+                          <Mail className="w-4 h-4 mr-2" />
+                          Email Me
                           <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                         </Button>
                       </motion.div>
@@ -273,7 +289,7 @@ export function Contact() {
                           onClick={() => window.open('https://www.linkedin.com/in/dorian-crutcher/', '_blank')}
                         >
                           <MessageCircle className="w-4 h-4 mr-2" />
-                          Message on LinkedIn
+                          Connect on LinkedIn
                           <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                         </Button>
                       </motion.div>
@@ -299,41 +315,7 @@ export function Contact() {
               </div>
             </ScrollAnimation>
 
-            {/* Quick Stats */}
-            <ScrollAnimation direction="right" delay={0.6}>
-              <StaggerContainer className="grid grid-cols-3 gap-4 text-center">
-                <StaggerItem>
-                  <motion.div 
-                    className="p-4"
-                    whileHover={{ y: -5 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <div className="text-2xl font-bold text-secondary mb-1">2 weeks</div>
-                    <div className="text-xs text-muted-foreground">Average setup time</div>
-                  </motion.div>
-                </StaggerItem>
-                <StaggerItem>
-                  <motion.div 
-                    className="p-4"
-                    whileHover={{ y: -5 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <div className="text-2xl font-bold text-secondary mb-1">15+</div>
-                    <div className="text-xs text-muted-foreground">Happy clients</div>
-                  </motion.div>
-                </StaggerItem>
-                <StaggerItem>
-                  <motion.div 
-                    className="p-4"
-                    whileHover={{ y: -5 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <div className="text-2xl font-bold text-secondary mb-1">24/7</div>
-                    <div className="text-xs text-muted-foreground">Agent uptime</div>
-                  </motion.div>
-                </StaggerItem>
-              </StaggerContainer>
-            </ScrollAnimation>
+
           </div>
         </div>
       </div>

@@ -36,31 +36,31 @@ export function Footer() {
                 className="w-10 h-10 object-contain bg-primary-foreground/10 rounded-xl p-2"
               />
               <div>
-                <div className="font-bold text-lg">Small Business Automated</div>
-                <div className="text-sm text-primary-foreground/60">by Dorian</div>
+                <div className="font-bold text-lg">Dorian Crutcher</div>
+                <div className="text-sm text-primary-foreground/60">Full-Stack Developer & AI Engineer</div>
               </div>
             </div>
             <p className="text-primary-foreground/80 leading-relaxed">
-              AI agents and workflow automation for small businesses. 
-              Direct communication, custom solutions, ongoing support.
+              Building intelligent applications and scalable solutions. 
+              Specializing in React, AI automation, and developer education.
             </p>
           </div>
 
-          {/* Quick Links */}
+          {/* Portfolio Links */}
           <div className="space-y-4">
-            <h4 className="font-semibold">Quick Links</h4>
+            <h4 className="font-semibold">Portfolio</h4>
             <div className="space-y-3">
               <button 
-                onClick={() => scrollToSection('why-agents')}
+                onClick={() => scrollToSection('about')}
                 className="block text-primary-foreground/70 hover:text-primary-foreground transition-colors"
               >
-                Why AI Agents?
+                About Me
               </button>
               <button 
-                onClick={() => scrollToSection('how-it-works')}
+                onClick={() => scrollToSection('services')}
                 className="block text-primary-foreground/70 hover:text-primary-foreground transition-colors"
               >
-                How It Works
+                Skills & Services
               </button>
               <button 
                 onClick={() => scrollToSection('case-studies')}
@@ -72,28 +72,28 @@ export function Footer() {
                 onClick={() => scrollToSection('contact')}
                 className="block text-primary-foreground/70 hover:text-primary-foreground transition-colors"
               >
-                Get Started
+                Get In Touch
               </button>
             </div>
           </div>
 
-          {/* Contact */}
+          {/* Connect */}
           <div className="space-y-4">
-            <h4 className="font-semibold">Let's Connect</h4>
+            <h4 className="font-semibold">Connect</h4>
             <div className="space-y-3">
               <button 
-                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() => window.open('mailto:crutcherdorian@gmail.com')}
                 className="flex items-center space-x-3 text-primary-foreground/70 hover:text-primary-foreground transition-colors group"
               >
                 <Mail className="w-4 h-4" />
-                <span>Book Free Audit</span>
+                <span>Email Me</span>
               </button>
               <button 
-                onClick={() => window.open('https://calendly.com', '_blank')}
+                onClick={() => window.open('https://github.com/doriancrutcher', '_blank')}
                 className="flex items-center space-x-3 text-primary-foreground/70 hover:text-primary-foreground transition-colors group"
               >
-                <Calendar className="w-4 h-4" />
-                <span>Calendly</span>
+                <MessageCircle className="w-4 h-4" />
+                <span>GitHub</span>
               </button>
               <button 
                 onClick={() => window.open('https://www.linkedin.com/in/dorian-crutcher/', '_blank')}
@@ -104,27 +104,18 @@ export function Footer() {
               </button>
             </div>
 
-            <div className="pt-4">
-              <div className="bg-secondary/20 rounded-lg p-4 border border-secondary/30">
-                <p className="text-sm text-primary-foreground/90">
-                  <strong>Response Time:</strong> Within 24 hours
-                </p>
-                <p className="text-sm text-primary-foreground/90">
-                  <strong>Setup Time:</strong> 2 weeks average
-                </p>
-              </div>
-            </div>
+
           </div>
         </div>
 
         <div className="border-t border-primary-foreground/20 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center text-center md:text-left">
             <p className="text-sm text-primary-foreground/60">
-              © 2024 Small Business Automated. All rights reserved.
+              © 2024 Dorian Crutcher. All rights reserved.
             </p>
             <div className="flex items-center space-x-6 mt-4 md:mt-0">
               <span className="text-sm text-primary-foreground/60">
-                Made with ❤️ for small business owners
+                Made with ❤️ for developers and innovators
               </span>
             </div>
           </div>

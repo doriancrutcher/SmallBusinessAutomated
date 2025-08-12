@@ -304,28 +304,7 @@ export function CaseStudies() {
           </div>
         </ScrollAnimation>
 
-        {/* Bottom CTA */}
-        <ScrollAnimation direction="up" delay={1.0}>
-          <div className="mt-20 text-center">
-            <div className="bg-card rounded-3xl p-12 border shadow-sm">
-              <h3 className="text-2xl font-bold text-foreground mb-4">
-                Want to Be My Next Success Story?
-              </h3>
-              <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-                Every project starts with understanding your unique situation. 
-                Let's talk about what's possible for your business.
-              </p>
-              <motion.button 
-                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                className="pill-button pill-button-primary hover-glow-lime text-lg px-10 py-4"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Start Your Project
-              </motion.button>
-            </div>
-          </div>
-        </ScrollAnimation>
+
       </div>
     </section>
   );
