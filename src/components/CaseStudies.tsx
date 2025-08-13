@@ -82,7 +82,7 @@ export function CaseStudies() {
           <div className="relative">
             <div 
               ref={scrollContainerRef}
-              className="flex space-x-6 overflow-x-auto scrollbar-hide pb-4"
+              className="flex space-x-6 overflow-x-auto scrollbar-hide pb-4 pt-4"
               style={{
                 scrollSnapType: 'x mandatory',
                 scrollbarWidth: 'none',
@@ -92,13 +92,13 @@ export function CaseStudies() {
               {projects.map((project, index) => (
                 <motion.div
                   key={project.id}
-                  className="flex-none w-72 md:w-80 lg:w-96"
+                  className="flex-none w-72 md:w-80 lg:w-96 my-2"
                   style={{ scrollSnapAlign: 'start' }}
                   initial={{ opacity: 0, x: 50 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.1, duration: 0.6 }}
                   viewport={{ once: true }}
-                  whileHover={{ y: -8, scale: 1.02 }}
+                  whileHover={{ y: -4, scale: 1.01 }}
                 >
                   <div 
                     className="group relative cursor-pointer"
@@ -113,7 +113,7 @@ export function CaseStudies() {
                     aria-label={`Open ${project.title} project details`}
                     role="button"
                   >
-                    <Card className="group hover:shadow-xl transition-all duration-300 border-2 hover:border-secondary/30 h-full hover:shadow-[0_8px_30px_rgba(212,229,139,0.15)] transition-transform duration-200 hover:scale-[1.01]">
+                    <Card className="group hover:shadow-xl transition-all duration-300 border-2 hover:border-secondary/30 h-full hover:shadow-[0_8px_30px_rgba(212,229,139,0.15)] transition-transform duration-200 hover:scale-[1.005]">
                       {/* Green under glow */}
                       <div 
                         className="pointer-events-none absolute inset-x-6 -bottom-3 h-6 rounded-full opacity-0 blur-xl transition-opacity duration-300 group-hover:opacity-100"
