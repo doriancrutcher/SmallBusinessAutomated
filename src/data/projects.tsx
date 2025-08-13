@@ -1,5 +1,5 @@
 import React from 'react';
-import { BookOpen, FileText } from "lucide-react";
+import { BookOpen, FileText, Bot } from "lucide-react";
 
 export interface Project {
   id: string;
@@ -24,6 +24,43 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    id: "pigeonQuill",
+    title: "PigeonQuill",
+    industry: "Study Tools",
+    problem: "Studying from PDF textbooks is slow because you cannot quickly search figures, extract images, or get page aware help",
+    toolsUsed: ["React", "PDF.js", "OpenAI", "Python", "FastAPI", "OCR", "Vector DB", "LangChain"],
+    agent: "LLM powered study buddy for PDF textbooks with figure aware search, image extraction, page aware Q and A, and 1 click flashcards",
+    builtLabel: "App Built",
+    results: [
+      "Find content by figure captions and labels",
+      "Save images and ask targeted questions about them",
+      "Generate flashcards from the current page with spaced repetition format"
+    ],
+    description: "A reader that rides along as you read. It knows your current page, answers in context, supports normal PDF tools, and lets you capture figures and facts as flashcards.",
+    icon: <FileText className="w-5 h-5" />,
+    tags: ["Study Tools", "React", "AI"],
+    meta: "Creator and Full Stack"
+  },
+  {
+    id: "jerryBlueprintBot",
+    title: "Jerry Blueprint Bot",
+    industry: "Developer Relations and Gaming",
+    problem: "Sharing Minecraft builds and step by step plans is slow and hard to reproduce",
+    toolsUsed: ["Python","Discord.py","FastAPI","Pagoda Storage API","React"],
+    agent: "Discord bot that records a world volume stores block coordinates and ids as a blueprint and can rebuild the structure block by block",
+    builtLabel: "App Built",
+    results: [
+      "Chat commands set start and end points then capture blocks in that volume",
+      "Rebuilds structures from saved blueprints for a watchable demo",
+      "Companion site lets users publish and share blueprints with friends"
+    ],
+    description: "Built to demo the Pagoda storage API during developer relations work. Jerry acts as a chat proxy to capture blueprints and replay them so people can see their builds reconstructed in real time.",
+    icon: <Bot className="w-5 h-5" />,
+    tags: ["Developer Relations", "Gaming", "Discord Bot"],
+    meta: "Creator and full stack",
+    videoUrl: "https://www.youtube.com/embed/pSuTpjvfEEs?si=PI91J-WkN4O4eX9M"
+  },
+  {
     id: "audioh",
     title: "Audioh",
     industry: "Social Reading",
@@ -41,24 +78,6 @@ export const projects: Project[] = [
     icon: <BookOpen className="w-5 h-5" />,
     tags: ["Social Reading", "React Native", "AWS"],
     meta: "Technical PM and Frontend • Team 3 devs, 1 designer"
-  },
-  {
-    id: "pigeonQuill",
-    title: "PigeonQuill",
-    industry: "Study Tools",
-    problem: "Studying from PDF textbooks is slow because you cannot quickly search figures, extract images, or get page aware help",
-    toolsUsed: ["React", "PDF.js", "OpenAI", "Python", "FastAPI", "OCR", "Vector DB", "LangChain"],
-    agent: "LLM powered study buddy for PDF textbooks with figure aware search, image extraction, page aware Q and A, and 1 click flashcards",
-    builtLabel: "App Built",
-    results: [
-      "Find content by figure captions and labels",
-      "Save images and ask targeted questions about them",
-      "Generate flashcards from the current page with spaced repetition format"
-    ],
-    description: "A reader that rides along as you read. It knows your current page, answers in context, supports normal PDF tools, and lets you capture figures and facts as flashcards.",
-    icon: <FileText className="w-5 h-5" />,
-    tags: ["Study Tools", "React", "AI"],
-    meta: "Creator and Full Stack"
   },
   {
     id: "airbnbAgent",
