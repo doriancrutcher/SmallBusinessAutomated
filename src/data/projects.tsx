@@ -1,5 +1,5 @@
 import React from 'react';
-import { BookOpen, FileText, Bot } from "lucide-react";
+import { BookOpen, FileText, Bot, Filter } from "lucide-react";
 
 export interface Project {
   id: string;
@@ -98,5 +98,22 @@ export const projects: Project[] = [
     meta: "Creator and Full Stack",
     videoUrl: "https://www.youtube.com/embed/618woMJox54?start=168"
   },
-
+  {
+    id: "newsImpactFilter",
+    title: "News Impact Filter",
+    industry: "Personal Research",
+    problem: "People feel anxious and overwhelmed by nonstop headlines. It is hard to know which stories actually affect your life or work.",
+    toolsUsed: ["React", "OpenAI", "NewsAPI", "Firebase Auth", "Firestore", "Firebase Cloud Functions"],
+    agent: "A personal news triage app that reads headlines and full articles, matches them to a user profile and keywords, and flags only the items that will matter. Each alert includes a short 'why this matters to you' note and optional next steps. Supports a daily brief view and on demand checks.",
+    builtLabel: "App Built",
+    results: [
+      "Time saved: Daily scrolling replaced by a 1 minute brief",
+      "Signal: Only triggers when an impact threshold is met",
+      "Clarity: Every alert explains why it is relevant to you"
+    ],
+    description: "A calm filter that turns the news firehose into personal impact alerts with clear reasons and zero doomscrolling.",
+    icon: <Filter className="w-5 h-5" />,
+    tags: ["Personal Research", "AI", "News", "React"],
+    meta: "Creator and Full Stack"
+  }
 ]; 

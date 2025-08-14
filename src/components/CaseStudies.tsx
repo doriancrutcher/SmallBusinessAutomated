@@ -24,13 +24,12 @@ export function CaseStudies() {
           </ScrollAnimation>
           <ScrollAnimation direction="up" delay={0.2}>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
-              Projects & Impact
+              Projects
             </h2>
           </ScrollAnimation>
           <ScrollAnimation direction="up" delay={0.4}>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Every project is different, but the results are consistently the same: 
-              more time, less stress, and systems that actually work.
+             These projects are a mixture of my work in developer relations, Startups I was a part of , and my own projects. Click on them to learn more!
             </p>
           </ScrollAnimation>
         </div>
