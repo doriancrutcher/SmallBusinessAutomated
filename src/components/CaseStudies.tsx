@@ -1,32 +1,17 @@
-import { useRef } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
-import { ExternalLink, ChevronLeft, ChevronRight } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import { ScrollAnimation } from "./ScrollAnimation";
 import { motion } from 'framer-motion';
 import { Modal } from './Modal';
 import { ProjectModalContent } from './ProjectModalContent';
 import { useState } from 'react';
 import { projects, Project } from '../data/projects';
+import TypingRevealer from './TypingRevealer';
 
 export function CaseStudies() {
-  const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [selectedId, setSelectedId] = useState<string | null>(null);
-
-  const scrollLeft = () => {
-    if (scrollContainerRef.current) {
-      scrollContainerRef.current.scrollBy({ left: -400, behavior: 'smooth' });
-    }
-  };
-
-  const scrollRight = () => {
-    if (scrollContainerRef.current) {
-      scrollContainerRef.current.scrollBy({ left: 400, behavior: 'smooth' });
-    }
-  };
-
-
 
   return (
     <section id="case-studies" className="py-24 bg-muted/30">
@@ -50,52 +35,20 @@ export function CaseStudies() {
           </ScrollAnimation>
         </div>
 
-        {/* Carousel Navigation */}
-        <ScrollAnimation direction="up" delay={0.6}>
-          <div className="flex justify-between items-center mb-8">
-            <div className="flex items-center space-x-2">
-              <span className="text-sm text-muted-foreground">Scroll to explore projects</span>
-              <div className="hidden sm:flex space-x-2">
-                <motion.button
-                  onClick={scrollLeft}
-                  className="w-10 h-10 bg-card border border-border rounded-full flex items-center justify-center hover:bg-secondary/10 hover:border-secondary/30 transition-colors"
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                >
-                  <ChevronLeft className="w-5 h-5 text-foreground" />
-                </motion.button>
-                <motion.button
-                  onClick={scrollRight}
-                  className="w-10 h-10 bg-card border border-border rounded-full flex items-center justify-center hover:bg-secondary/10 hover:border-secondary/30 transition-colors"
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                >
-                  <ChevronRight className="w-5 h-5 text-foreground" />
-                </motion.button>
-              </div>
-            </div>
-          </div>
-        </ScrollAnimation>
 
-        {/* Horizontal Scrolling Carousel */}
+
+        {/* Project Gallery Grid */}
         <ScrollAnimation direction="up" delay={0.8}>
           <div className="relative">
             <div 
-              ref={scrollContainerRef}
-              className="flex space-x-6 overflow-x-auto scrollbar-hide pb-4 pt-4"
-              style={{
-                scrollSnapType: 'x mandatory',
-                scrollbarWidth: 'none',
-                msOverflowStyle: 'none'
-              }}
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 pb-4 pt-4"
             >
               {projects.map((project, index) => (
                 <motion.div
                   key={project.id}
-                  className="flex-none w-72 md:w-80 lg:w-96 my-2"
-                  style={{ scrollSnapAlign: 'start' }}
-                  initial={{ opacity: 0, x: 50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
+                  className="w-full"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1, duration: 0.6 }}
                   viewport={{ once: true }}
                   whileHover={{ y: -4, scale: 1.01 }}
@@ -113,89 +66,50 @@ export function CaseStudies() {
                     aria-label={`Open ${project.title} project details`}
                     role="button"
                   >
-                    <Card className="group hover:shadow-xl transition-all duration-300 border-2 hover:border-secondary/30 h-full hover:shadow-[0_8px_30px_rgba(212,229,139,0.15)] transition-transform duration-200 hover:scale-[1.005]">
+                    <Card className="project-card group hover:shadow-xl transition-all duration-300 border-2 hover:border-secondary/30 h-full hover:shadow-[0_8px_30px_rgba(212,229,139,0.15)] transition-transform duration-200 hover:scale-[1.005]">
                       {/* Green under glow */}
                       <div 
                         className="pointer-events-none absolute inset-x-6 -bottom-3 h-6 rounded-full opacity-0 blur-xl transition-opacity duration-300 group-hover:opacity-100"
                         style={{ background: 'radial-gradient(60% 60% at 50% 50%, rgba(212,229,139,0.45), rgba(212,229,139,0.0))' }}
                       />
-                    <CardHeader>
-                      <div className="flex items-center justify-between mb-3">
+                      <CardHeader className="project-card-header pb-4">
+                        <div className="flex items-center justify-between mb-4">
+                          <motion.div 
+                            className="w-16 h-16 bg-secondary/20 rounded-xl flex items-center justify-center text-secondary"
+                            whileHover={{ rotate: 5, scale: 1.05 }}
+                            transition={{ duration: 0.2 }}
+                          >
+                            {project.icon}
+                          </motion.div>
+                          <Badge variant="outline" className="border-secondary/30 text-foreground ml-6">
+                            {project.industry}
+                          </Badge>
+                        </div>
+                        <div className="typing-container">
+                          <TypingRevealer
+                            title={project.title}
+                            valueText={project.agent}
+                            className="mb-0"
+                          />
+                        </div>
+                      </CardHeader>
+                      <CardContent className="pt-0">
+                        {/* Click to learn more hint - positioned below the typed content */}
                         <motion.div 
-                          className="w-12 h-12 bg-secondary/20 rounded-xl flex items-center justify-center text-secondary"
-                          whileHover={{ rotate: 5 }}
-                          transition={{ duration: 0.2 }}
+                          className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center text-secondary text-sm font-medium py-4 mt-8"
+                          initial={{ opacity: 0 }}
+                          whileInView={{ opacity: 0 }}
+                          whileHover={{ opacity: 1 }}
                         >
-                          {project.icon}
+                          <span>Click to learn more</span>
+                          <ExternalLink className="w-4 h-4 ml-2" />
                         </motion.div>
-                        <Badge variant="outline" className="border-secondary/30 text-foreground">
-                          {project.industry}
-                        </Badge>
-                      </div>
-                      <CardTitle className="text-xl leading-tight">{project.title}</CardTitle>
-                    </CardHeader>
-                    <CardContent className="space-y-4">
-                      {/* Problem */}
-                      <div>
-                        <h4 className="font-semibold text-sm text-foreground mb-2">The Problem</h4>
-                        <p className="text-sm text-muted-foreground leading-relaxed">{project.problem}</p>
-                      </div>
-                      
-                      {/* App Built */}
-                      <div>
-                        <h4 className="font-semibold text-sm text-foreground mb-2">{project.builtLabel || "AI Agent Built"}</h4>
-                        <p className="text-sm font-medium text-secondary">{project.agent}</p>
-                      </div>
-
-                      {/* Tools */}
-                      <div>
-                        <h4 className="font-semibold text-sm text-foreground mb-2">Tools Used</h4>
-                        <div className="flex flex-wrap gap-1">
-                          {project.toolsUsed.map(tool => (
-                            <Badge key={tool} variant="secondary" className="text-xs bg-secondary/10 text-foreground border-secondary/20">
-                              {tool}
-                            </Badge>
-                          ))}
-                        </div>
-                      </div>
-
-                      {/* Results */}
-                      <div>
-                        <h4 className="font-semibold text-sm text-foreground mb-3">Results</h4>
-                        <div className="space-y-2">
-                          {project.results.map((result, index) => (
-                            <div key={index} className="flex items-center">
-                              <div className="w-1.5 h-1.5 bg-secondary rounded-full mr-2 flex-shrink-0"></div>
-                              <span className="text-sm text-muted-foreground">{result}</span>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-
-                      {/* Description */}
-                      <div className="pt-2 border-t border-border">
-                        <p className="text-sm text-muted-foreground leading-relaxed">{project.description}</p>
-                      </div>
-
-                      {/* Hover effect - Learn More */}
-                      <motion.div 
-                        className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center text-secondary text-sm font-medium"
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 0 }}
-                        whileHover={{ opacity: 1 }}
-                      >
-                        <span>Learn more about this project</span>
-                        <ExternalLink className="w-4 h-4 ml-2" />
-                      </motion.div>
-                    </CardContent>
-                  </Card>
-                    </div>
-                  </motion.div>
+                      </CardContent>
+                    </Card>
+                  </div>
+                </motion.div>
               ))}
             </div>
-            
-            {/* Gradient overlay on the right */}
-            <div className="absolute top-0 right-0 w-16 h-full bg-gradient-to-l from-muted/30 to-transparent pointer-events-none"></div>
           </div>
         </ScrollAnimation>
 
@@ -225,7 +139,6 @@ export function CaseStudies() {
             </Modal>
           );
         })()}
-
       </div>
     </section>
   );

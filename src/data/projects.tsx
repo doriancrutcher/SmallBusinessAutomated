@@ -44,7 +44,7 @@ export const projects: Project[] = [
   {
     id: "jerryBlueprintBot",
     title: "Jerry Blueprint Bot",
-    industry: "Developer Relations and Gaming",
+    industry: "Dev Rel and Gaming",
     problem: "Sharing Minecraft builds and step by step plans is slow and hard to reproduce",
     toolsUsed: ["Python","Discord.py","FastAPI","Pagoda Storage API","React"],
     agent: "Discord bot that records a world volume stores block coordinates and ids as a blueprint and can rebuild the structure block by block",
@@ -97,5 +97,6 @@ export const projects: Project[] = [
     tags: ["Hospitality", "AI", "Automation"],
     meta: "Creator and Full Stack",
     videoUrl: "https://www.youtube.com/embed/618woMJox54?start=168"
-  }
+  },
+
 ]; 
