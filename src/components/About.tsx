@@ -64,10 +64,10 @@ export function About() {
             <span className="text-secondary">Dorian</span>
           </h1>
           <h2 className="text-2xl md:text-3xl font-semibold text-foreground mb-4">
-            Solutions Engineer & Developer Relations Specialist
+            Solutions Engineer & Technical Consultant
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            I connect people and technology to turn ideas into impactful solutions.
+            Technical Solutions & Enterprise Consulting
           </p>
         </motion.div>
 
@@ -91,13 +91,13 @@ export function About() {
                   />
                   <div>
                     <h3 className="text-2xl font-bold text-foreground">Dorian</h3>
-                    <p className="text-lg text-secondary font-medium">Developer Relations</p>
-                    <p className="text-sm text-muted-foreground">AI Enthusiast & Problem Solver</p>
+                    <p className="text-lg text-secondary font-medium">Solutions Engineer</p>
+                    <p className="text-sm text-muted-foreground">Technical Consultant & Problem Solver</p>
                   </div>
                 </div>
                 
                 <p className="text-muted-foreground leading-relaxed mb-6">
-                  I've spent 5+ years building and delivering solutions that work — from custom applications to complex system integrations. My work spans full-stack development, developer education, and AI-driven automation, always with a focus on practical, scalable, and user-friendly results. I've led live coding workshops for 50+ developers, brought creative solutions to hackathons, and grown YouTube engagement from hundreds to <strong>10,000+</strong>.
+                  I've spent 5+ years building and delivering technical solutions that work — from enterprise integrations to custom applications. My work spans full-stack development, technical consulting, and system architecture, always with a focus on practical, scalable, and business-aligned results. I've led technical workshops for 50+ developers, delivered solutions for enterprise clients, and grown technical communities from hundreds to <strong>10,000+</strong>.
                 </p>
 
 

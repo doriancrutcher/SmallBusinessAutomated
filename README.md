@@ -1,4 +1,4 @@
-# Small Business Automated Website
+# Dorian Crutcher - Solutions Engineer Portfolio
 
 A React + TypeScript website built with Vite and shadcn/ui components, exported from Figma.
 

@@ -47,13 +47,13 @@ export function Services() {
     },
     {
       icon: <Globe className="w-8 h-8" />,
-      title: "Developer Education & Engagement",
-      description: "Creating resources and experiences that help developers learn, adopt, and succeed with technology",
+      title: "Client Engagement & Technical Consulting",
+      description: "Working directly with founders and business development teams to architect technical solutions and integrate complex SDKs into their platforms",
       technologies: [
-        "Live Coding Workshops",
-        "Technical Documentation",
-        "API Demos & Tutorials",
-        "Community Building"
+        "SDK Integration & Architecture",
+        "Technical Strategy Sessions",
+        "Platform Integration Planning",
+        "Founder & BD Team Training"
       ],
       level: "Advanced",
       popular: false
@@ -129,6 +129,8 @@ export function Services() {
                     ? window.open('https://github.com/doriancrutcher?tab=repositories', '_blank')
                     : skill.title === "AI-Powered Applications"
                     ? window.open('https://www.youtube.com/shorts/RyJiqfWZEJE', '_blank')
+                    : skill.title === "Client Engagement & Technical Consulting"
+                    ? window.open('https://www.youtube.com/embed/pSuTpjvfEEs?si=PI91J-WkN4O4eX9M', '_blank')
                     : document.getElementById('case-studies')?.scrollIntoView({ behavior: 'smooth' })
                   }
                   className={`w-full mt-6 pill-button group transition-all duration-300 flex items-center justify-center ${
@@ -137,7 +139,7 @@ export function Services() {
                       : 'pill-button-secondary hover:bg-secondary/10'
                   }`}
                 >
-                  <span>{skill.title === "Frontend Development" || skill.title === "Backend Development" ? "View GitHub Projects" : skill.title === "AI-Powered Applications" ? "Watch AI Demo" : "See Examples"}</span>
+                  <span>{skill.title === "Frontend Development" || skill.title === "Backend Development" ? "View GitHub Projects" : skill.title === "AI-Powered Applications" ? "Watch AI Demo" : skill.title === "Client Engagement & Technical Consulting" ? "View Pagoda SDK Work" : "See Examples"}</span>
                   <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                 </button>
               </CardContent>
