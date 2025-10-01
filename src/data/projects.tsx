@@ -15,6 +15,7 @@ export interface Project {
   tags: string[];
   meta?: string;
   videoUrl?: string;
+  screenshot?: string;
   links?: {
     case?: string;
     code?: string;

@@ -60,14 +60,10 @@ export function About() {
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
-            Hi, I'm{' '}
-            <span className="text-secondary">Dorian</span>
+            <span className="text-secondary">Solutions Engineer</span>
           </h1>
-          <h2 className="text-2xl md:text-3xl font-semibold text-foreground mb-4">
-            Solutions Engineer & Technical Consultant
-          </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Technical Solutions & Enterprise Consulting
+            Building technical solutions that drive enterprise success, with Developer Relations experience that sharpened my ability to create compelling demos and accelerate customer adoption.
           </p>
         </motion.div>
 

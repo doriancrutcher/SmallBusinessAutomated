@@ -1,14 +1,13 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, Play } from "lucide-react";
 import { ScrollAnimation } from "./ScrollAnimation";
 import { motion } from 'framer-motion';
 import { Modal } from './Modal';
 import { ProjectModalContent } from './ProjectModalContent';
 import { useState } from 'react';
-import { projects, Project } from '../data/projects';
-import TypingRevealer from './TypingRevealer';
+import { projects } from '../data/projects';
 
 export function CaseStudies() {
   const [selectedId, setSelectedId] = useState<string | null>(null);
@@ -65,35 +64,69 @@ export function CaseStudies() {
                     aria-label={`Open ${project.title} project details`}
                     role="button"
                   >
-                    <Card className="project-card group hover:shadow-xl transition-all duration-300 border-2 hover:border-secondary/30 h-full hover:shadow-[0_8px_30px_rgba(212,229,139,0.15)] transition-transform duration-200 hover:scale-[1.005]">
+                    <Card className="project-card group hover:shadow-[0_8px_30px_rgba(212,229,139,0.15)] transition-all duration-300 border-2 hover:border-secondary/30 h-full hover:scale-[1.005]">
                       {/* Green under glow */}
                       <div 
                         className="pointer-events-none absolute inset-x-6 -bottom-3 h-6 rounded-full opacity-0 blur-xl transition-opacity duration-300 group-hover:opacity-100"
                         style={{ background: 'radial-gradient(60% 60% at 50% 50%, rgba(212,229,139,0.45), rgba(212,229,139,0.0))' }}
                       />
-                      <CardHeader className="project-card-header pb-4">
-                        <div className="flex items-center justify-between mb-4">
-                          <motion.div 
-                            className="w-16 h-16 bg-secondary/20 rounded-xl flex items-center justify-center text-secondary"
-                            whileHover={{ rotate: 5, scale: 1.05 }}
-                            transition={{ duration: 0.2 }}
-                          >
-                            {project.icon}
-                          </motion.div>
-                          <Badge variant="outline" className="border-secondary/30 text-foreground ml-6">
-                            {project.industry}
-                          </Badge>
+                      
+                      {/* Card Content - Priority: Video > Screenshot > Icon */}
+                      <div className="flex flex-col h-full">
+                        {project.videoUrl ? (
+                          // Video Card - Primary
+                          <div className="relative h-32 bg-muted/20 overflow-hidden rounded-t-lg">
+                            <img 
+                              src={`https://img.youtube.com/vi/${project.videoUrl.split('embed/')[1]?.split('?')[0]}/maxresdefault.jpg`}
+                              alt={`${project.title} video thumbnail`}
+                              className="w-full h-full object-cover"
+                            />
+                            <div className="absolute inset-0 bg-black/20 flex items-center justify-center group-hover:bg-black/30 transition-colors duration-300">
+                              <motion.div 
+                                className="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center shadow-2xl border border-white/30"
+                                whileHover={{ scale: 1.1 }}
+                                transition={{ duration: 0.2 }}
+                              >
+                                <Play className="w-6 h-6 text-white ml-1 drop-shadow-lg" fill="currentColor" />
+                              </motion.div>
+                            </div>
+                          </div>
+                        ) : project.screenshot ? (
+                          // Screenshot Card - Secondary
+                          <div className="relative h-32 bg-muted/20 overflow-hidden rounded-t-lg">
+                            <img 
+                              src={project.screenshot}
+                              alt={`${project.title} screenshot`}
+                              className="w-full h-full object-cover"
+                            />
+                          </div>
+                        ) : (
+                          // Icon Card - Fallback
+                          <div className="h-32 flex items-center justify-center bg-muted/10 rounded-t-lg">
+                            <motion.div 
+                              className="w-20 h-20 bg-secondary/20 rounded-xl flex items-center justify-center text-secondary"
+                              whileHover={{ rotate: 5, scale: 1.05 }}
+                              transition={{ duration: 0.2 }}
+                            >
+                              {project.icon}
+                            </motion.div>
+                          </div>
+                        )}
+                        
+                        {/* Text Content - Same for all card types */}
+                        <div className="flex-1 p-4 flex flex-col">
+                          <div className="flex items-center justify-between mb-2">
+                            <Badge variant="outline" className="border-secondary/30 text-foreground text-xs">
+                              {project.industry}
+                            </Badge>
+                          </div>
+                          <h3 className="text-lg font-semibold text-foreground mb-2 line-clamp-1">{project.title}</h3>
+                          <p className="text-sm text-foreground/80 line-clamp-2 leading-relaxed flex-1">{project.description}</p>
                         </div>
-                        <div className="typing-container">
-                          <TypingRevealer
-                            title={project.title}
-                            valueText={project.agent}
-                            className="mb-0"
-                          />
-                        </div>
-                      </CardHeader>
+                      </div>
+                      
                       <CardContent className="pt-0">
-                        {/* Click to learn more hint - positioned below the typed content */}
+                        {/* Click to learn more hint - positioned below the content */}
                         <motion.div 
                           className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center text-secondary text-sm font-medium py-4 mt-8"
                           initial={{ opacity: 0 }}
