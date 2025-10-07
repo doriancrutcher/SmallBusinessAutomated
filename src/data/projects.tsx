@@ -1,5 +1,5 @@
 import React from 'react';
-import { BookOpen, FileText, Bot, Filter, Vote, Book } from "lucide-react";
+import { BookOpen, FileText, Bot, Filter, Vote, Book, Video } from "lucide-react";
 
 export interface Project {
   id: string;
@@ -171,5 +171,71 @@ export const projects: Project[] = [
     links: {
       live: "https://docs.near.org/smart-contracts/quickstart"
     }
+  },
+  {
+    id: "nearJavaScriptSDK",
+    title: "Getting Started with NEAR JavaScript SDK",
+    industry: "Developer Education",
+    problem: "Developers need hands-on guidance to understand NEAR blockchain development fundamentals and JavaScript SDK implementation",
+    toolsUsed: ["NEAR JavaScript SDK", "JavaScript", "Smart Contracts", "Blockchain", "Live Coding"],
+    agent: "Comprehensive live workshop teaching developers how to build on NEAR blockchain using the JavaScript SDK",
+    builtLabel: "Workshop Delivered",
+    results: [
+      "Setting up the NEAR JS SDK in a local environment",
+      "Writing and deploying smart contracts",
+      "Interacting with accounts and transactions",
+      "Understanding gas, fees, and wallet integration",
+      "Real-time coding walkthrough with live commentary"
+    ],
+    description: "A comprehensive developer education session walking through the fundamentals of building on the NEAR blockchain using the official JavaScript SDK. Covered setup, environment configuration, smart contract interactions, and practical code examples for connecting decentralized applications to NEAR. Demonstrates clear technical communication skills by combining blockchain knowledge with hands-on coding demonstrations to support the developer community.",
+    icon: <Book className="w-5 h-5" />,
+    tags: ["Developer Education", "Blockchain", "JavaScript", "Live Workshop"],
+    meta: "Technical Educator and Developer Relations",
+    videoUrl: "https://www.youtube.com/embed/fQkz2DLmXsI",
+    screenshot: "https://i.imgur.com/Oh1PCgb.png"
+  },
+  {
+    id: "nearBytes",
+    title: "NEARbytes Series",
+    industry: "Developer Relations",
+    problem: "Developers need quick, digestible updates on the latest developments and tools in the NEAR ecosystem",
+    toolsUsed: ["Video Production", "Technical Communication", "NEAR Protocol", "Content Creation"],
+    agent: "Short-form video series delivering quick information updates about the NEAR ecosystem for developers",
+    builtLabel: "Series Created",
+    results: [
+      "Created bite-sized video content for developer engagement",
+      "Covered ecosystem updates, tools, and features",
+      "Made complex blockchain concepts accessible in short format",
+      "Kept developer community informed and engaged"
+    ],
+    description: "A short-form video series designed to give developers quick insights into what's happening in the NEAR ecosystem. NEARbytes delivered concise, information-packed updates about new tools, features, and developments, making it easy for busy developers to stay current with the NEAR blockchain. Combined technical knowledge with clear communication to create engaging developer-focused content.",
+    icon: <Video className="w-5 h-5" />,
+    tags: ["Developer Relations", "Video Content", "Blockchain", "NEAR Protocol"],
+    meta: "Content Creator and Developer Relations",
+    videoUrl: "https://www.youtube.com/embed/oh59VVo8oH8",
+    screenshot: "https://i.imgur.com/Oh1PCgb.png"
+  },
+  {
+    id: "nearNFTMinting",
+    title: "NEAR NFT Minting Workshop",
+    industry: "Developer Education",
+    problem: "Developers need practical, hands-on tutorials to understand NFT creation on NEAR blockchain using both CLI and JavaScript",
+    toolsUsed: ["Rust", "NEAR CLI", "NEAR API JS", "JavaScript", "WASM", "VS Code", "Yarn"],
+    agent: "Practical workshop that mints an NFT on NEAR using both NEAR CLI and a minimal JavaScript frontend",
+    builtLabel: "Workshop Delivered",
+    results: [
+      "Contract struct for NFTs including owner tracking and metadata",
+      "View methods versus change methods",
+      "Build Rust to WASM and deploy with NEAR CLI",
+      "Initialize contract metadata and verify state",
+      "Attach deposits for storage and set gas",
+      "Configure NEAR API JS and call NFT mint from a web app"
+    ],
+    description: "A comprehensive workshop recorded at a conference in Denver teaching developers how to mint NFTs on the NEAR blockchain. Covers contract structure, initialization, storage staking, and NEAR API JS integration. The session walks through building a Rust smart contract, compiling to WASM, deploying with NEAR CLI, and creating a simple frontend to mint NFTs. Includes detailed chapters: Intro and plan (00:00), Build and deploy (13:50), Initialize and verify (18:45), Mint with CLI (21:57), Frontend wiring and mint from UI (25:16), and Confirm in wallet (35:39).",
+    icon: <Video className="w-5 h-5" />,
+    tags: ["NFT", "Blockchain", "Rust", "Developer Education", "NEAR Protocol"],
+    meta: "Conference Speaker and Technical Educator",
+    videoUrl: "https://www.youtube.com/embed/Rt_cmIq12lo",
+    screenshot: "https://i.imgur.com/Oh1PCgb.png"
   }
 ]; 
