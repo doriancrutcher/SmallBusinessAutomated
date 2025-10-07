@@ -1,5 +1,5 @@
 import React from 'react';
-import { BookOpen, FileText, Bot, Filter } from "lucide-react";
+import { BookOpen, FileText, Bot, Filter, Vote, Book } from "lucide-react";
 
 export interface Project {
   id: string;
@@ -40,26 +40,31 @@ export const projects: Project[] = [
     description: "A reader that rides along as you read. It knows your current page, answers in context, supports normal PDF tools, and lets you capture figures and facts as flashcards.",
     icon: <FileText className="w-5 h-5" />,
     tags: ["Study Tools", "React", "AI"],
-    meta: "Creator and Full Stack"
+    meta: "Creator and Full Stack",
+    screenshot: "https://i.imgur.com/LhijfcL.png"
   },
   {
     id: "jerryBlueprintBot",
     title: "Jerry Blueprint Bot",
     industry: "Dev Rel and Gaming",
     problem: "Sharing Minecraft builds and step by step plans is slow and hard to reproduce",
-    toolsUsed: ["Python","Discord.py","FastAPI","Pagoda Storage API","React"],
+    toolsUsed: ["Python","Discord.py","FastAPI","Pagoda Storage API","React","NEAR SDK"],
     agent: "Discord bot that records a world volume stores block coordinates and ids as a blueprint and can rebuild the structure block by block",
     builtLabel: "App Built",
     results: [
       "Chat commands set start and end points then capture blocks in that volume",
       "Rebuilds structures from saved blueprints for a watchable demo",
-      "Companion site lets users publish and share blueprints with friends"
+      "Companion site lets users publish and share blueprints with friends",
+      "Extended demo showcased e-commerce integration for blueprint marketplace using NEAR SDK"
     ],
-    description: "Built to demo the Pagoda storage API during developer relations work. Jerry acts as a chat proxy to capture blueprints and replay them so people can see their builds reconstructed in real time.",
+    description: "Built to demo the Pagoda storage API during developer relations work. Jerry acts as a chat proxy to capture blueprints and replay them so people can see their builds reconstructed in real time. Extended with an e-commerce marketplace demo to show gamers how to monetize their creations using blockchain technology.",
     icon: <Bot className="w-5 h-5" />,
     tags: ["Developer Relations", "Gaming", "Discord Bot"],
     meta: "Creator and full stack",
-    videoUrl: "https://www.youtube.com/embed/pSuTpjvfEEs?si=PI91J-WkN4O4eX9M"
+    videoUrl: "https://www.youtube.com/embed/pSuTpjvfEEs?si=PI91J-WkN4O4eX9M",
+    links: {
+      case: "https://www.youtube.com/watch?v=hIBfQxvPeis&t=1s"
+    }
   },
   {
     id: "audioh",
@@ -71,14 +76,16 @@ export const projects: Project[] = [
     builtLabel: "App Built",
     results: [
       "First audiobook book club app",
-      "Team 3 developers and 1 designer",
+      "Partnered with major distributors including Penguin Random House for content licensing",
+      "Team of 3 developers and 1 designer working over 1.5 years",
       "Reliable pipeline for large audiobook ingestion and streaming delivery",
-      "Passed store navigation and accessibility reviews"
+      "Passed store navigation and accessibility reviews for iOS and Android"
     ],
-    description: "Frontend for mobile and web and technical product manager. Led 3 developers and 1 designer, ran customer interviews, and coordinated compliance.",
+    description: "A startup venture built with friends over a year and a half. As Technical PM and Frontend developer, I led a team of 3 developers and 1 designer through the entire product lifecycle. We successfully partnered with major publishers including Penguin Random House and other leading distributors to license audiobook content. Built full mobile and web experiences with chapter-synced discussions, highlights, and club management features. Though the app is no longer live, it represented a pioneering effort in social audiobook experiences.",
     icon: <BookOpen className="w-5 h-5" />,
     tags: ["Social Reading", "React Native", "AWS"],
-    meta: "Technical PM and Frontend • Team 3 devs, 1 designer"
+    meta: "Technical PM and Frontend • Team 3 devs, 1 designer",
+    screenshot: "https://i.imgur.com/Bpo7FzW.jpeg"
   },
   {
     id: "airbnbAgent",
@@ -116,5 +123,53 @@ export const projects: Project[] = [
     icon: <Filter className="w-5 h-5" />,
     tags: ["Personal Research", "AI", "News", "React"],
     meta: "Creator and Full Stack"
+  },
+  {
+    id: "blockchainVoting",
+    title: "Blockchain Voting App",
+    industry: "Civic Tech",
+    problem: "Traditional voting systems lack transparency and verifiability, which makes it difficult to ensure election integrity and voter confidence.",
+    toolsUsed: ["Solidity", "Ethereum", "React", "Web3.js", "Truffle", "MetaMask"],
+    agent: "Decentralized voting application built on blockchain that delivers transparent, tamper proof elections with verifiable results.",
+    builtLabel: "App Built",
+    results: [
+      "Immutable voting records on blockchain",
+      "Complete transparency and auditability",
+      "Anonymous yet verifiable voting mechanism",
+      "Real time vote counting and results",
+      "Most viewed YouTube tutorial with 56K views",
+      "Flagship live workshop during Developer Relations at NEAR, used to onboard and mentor new builders"
+    ],
+    description: "A blockchain based voting system that leverages smart contracts to create secure, transparent, and tamper proof elections. Built with Ethereum and React for a seamless user experience. The project anchored my NEAR DevRel workshops and the companion tutorial reached 56K views, becoming my go to demo for teaching end to end decentralized application development.",
+    icon: <Vote className="w-5 h-5" />,
+    tags: ["Blockchain", "Civic Tech", "Web3", "React"],
+    meta: "Creator and Full Stack",
+    videoUrl: "https://www.youtube.com/embed/sm8w9tDnMZc",
+    links: {
+      code: "https://github.com/doriancrutcher/blockvotetutorial2"
+    }
+  },
+  {
+    id: "nearDocumentation",
+    title: "NEAR Protocol Documentation",
+    industry: "Developer Relations",
+    problem: "Blockchain developers need clear, comprehensive documentation to build smart contracts and dApps on NEAR Protocol",
+    toolsUsed: ["Technical Writing", "NEAR SDK", "JavaScript", "Rust", "Python", "Markdown", "Documentation Tools"],
+    agent: "Comprehensive documentation and tutorials for NEAR Protocol smart contract development",
+    builtLabel: "Contribution",
+    results: [
+      "Created written examples for smart contract quickstart guides",
+      "Modified and enhanced existing documentation for clarity",
+      "Improved developer onboarding experience",
+      "Contributed to official NEAR Protocol documentation website"
+    ],
+    description: "Technical writing and documentation contributions to the NEAR Protocol developer resources. Focused on creating clear, practical examples and improving existing documentation to help developers quickly understand and build on the NEAR blockchain.",
+    icon: <Book className="w-5 h-5" />,
+    tags: ["Documentation", "Technical Writing", "Developer Relations", "Blockchain"],
+    meta: "Technical Writer and Documentation Contributor",
+    screenshot: "https://i.imgur.com/Oh1PCgb.png",
+    links: {
+      live: "https://docs.near.org/smart-contracts/quickstart"
+    }
   }
 ]; 

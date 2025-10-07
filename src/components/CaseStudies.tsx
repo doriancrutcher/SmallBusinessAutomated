@@ -98,6 +98,11 @@ export function CaseStudies() {
                               src={project.screenshot}
                               alt={`${project.title} screenshot`}
                               className="w-full h-full object-cover"
+                              style={{ 
+                                objectPosition: project.id === 'pigeonQuill' 
+                                  ? 'center 10%' 
+                                  : 'center center' 
+                              }}
                             />
                           </div>
                         ) : (
@@ -133,8 +138,8 @@ export function CaseStudies() {
                           whileInView={{ opacity: 0 }}
                           whileHover={{ opacity: 1 }}
                         >
-                          <span>Click to learn more</span>
-                          <ExternalLink className="w-4 h-4 ml-2" />
+                          <span className="text-secondary">Click to learn more</span>
+                          <ExternalLink className="w-4 h-4 ml-2 text-secondary" />
                         </motion.div>
                       </CardContent>
                     </Card>

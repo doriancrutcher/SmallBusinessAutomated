@@ -1,4 +1,3 @@
-import React from 'react';
 import { Badge } from '@/components/ui/badge';
 import { ExternalLink, Github, Globe, FileText } from 'lucide-react';
 
@@ -68,14 +67,13 @@ export function ProjectModalContent({
       {/* Results */}
       <div>
         <h4 className="font-semibold text-foreground mb-3">Results</h4>
-        <div className="space-y-2">
-          {results.slice(0, 4).map((result, index) => (
-            <div key={index} className="flex items-start">
-              <div className="w-1.5 h-1.5 bg-secondary rounded-full mr-3 mt-2 flex-shrink-0"></div>
-              <span className="text-muted-foreground">{result}</span>
-            </div>
+        <ol className="space-y-2 list-decimal list-inside">
+          {results.map((result, index) => (
+            <li key={index} className="text-muted-foreground leading-relaxed">
+              {result}
+            </li>
           ))}
-        </div>
+        </ol>
       </div>
 
       {/* Summary */}
