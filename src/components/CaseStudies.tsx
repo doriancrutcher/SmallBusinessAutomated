@@ -12,6 +12,9 @@ import { projects } from '../data/projects';
 export function CaseStudies() {
   const [selectedId, setSelectedId] = useState<string | null>(null);
 
+  // Debug log for mobile issues
+  console.log('CaseStudies component loaded, projects count:', projects.length);
+
   return (
     <section id="case-studies" className="py-24 bg-muted/30">
       <div className="max-w-7xl mx-auto px-4">
@@ -40,6 +43,7 @@ export function CaseStudies() {
           <div className="relative">
             <div 
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 pb-4 pt-4"
+              style={{ minHeight: '200px' }}
             >
               {projects.map((project, index) => (
                 <motion.div
@@ -77,9 +81,14 @@ export function CaseStudies() {
                           // Video Card - Primary
                           <div className="relative h-32 bg-muted/20 overflow-hidden rounded-t-lg">
                             <img 
-                              src={`https://img.youtube.com/vi/${project.videoUrl.split('embed/')[1]?.split('?')[0]}/maxresdefault.jpg`}
+                              src={`https://img.youtube.com/vi/${project.videoUrl.split('embed/')[1]?.split('?')[0]}/hqdefault.jpg`}
                               alt={`${project.title} video thumbnail`}
                               className="w-full h-full object-cover"
+                              loading="lazy"
+                              onError={(e) => {
+                                const target = e.target as HTMLImageElement;
+                                target.src = `https://img.youtube.com/vi/${project.videoUrl.split('embed/')[1]?.split('?')[0]}/default.jpg`;
+                              }}
                             />
                             <div className="absolute inset-0 bg-black/20 flex items-center justify-center group-hover:bg-black/30 transition-colors duration-300">
                               <motion.div 
@@ -98,10 +107,22 @@ export function CaseStudies() {
                               src={project.screenshot}
                               alt={`${project.title} screenshot`}
                               className="w-full h-full object-cover"
+                              loading="lazy"
                               style={{ 
                                 objectPosition: project.id === 'pigeonQuill' 
                                   ? 'center 10%' 
                                   : 'center center' 
+                              }}
+                              onError={(e) => {
+                                const target = e.target as HTMLImageElement;
+                                target.style.display = 'none';
+                                target.parentElement!.innerHTML = `
+                                  <div class="w-full h-full flex items-center justify-center bg-muted/10 rounded-t-lg">
+                                    <div class="w-16 h-16 bg-secondary/20 rounded-xl flex items-center justify-center text-secondary">
+                                      ${project.icon}
+                                    </div>
+                                  </div>
+                                `;
                               }}
                             />
                           </div>

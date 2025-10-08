@@ -1,6 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Search, Wrench, CheckSquare, TrendingUp } from "lucide-react";
+import { Search, Wrench, CheckSquare, TrendingUp, Network, Monitor, Users, BarChart3 } from "lucide-react";
 
 export function HowItWorks() {
   const steps = [
@@ -13,21 +13,21 @@ export function HowItWorks() {
     },
     {
       number: 2,
-      icon: <Wrench className="w-6 h-6" />,
+      icon: <Network className="w-6 h-6" />,
       title: "Design & Validate",
       description: "Collaborate with technical and business teams to design an architecture and workflow that fit the customer's goals. Prototype early to validate assumptions and demonstrate value.",
       details: ["Solution architecture & integration mapping", "Proof-of-concept (PoC) or demo design", "Technical validation checkpoints"]
     },
     {
       number: 3,
-      icon: <CheckSquare className="w-6 h-6" />,
+      icon: <Monitor className="w-6 h-6" />,
       title: "Build & Demonstrate",
       description: "Develop or configure the solution prototype, ensuring it clearly demonstrates the desired outcomes. Tailor the demo to different audiences, from engineers to executives.",
       details: ["Hands-on configuration or development", "Iterative demo refinement", "Business value storytelling"]
     },
     {
       number: 4,
-      icon: <TrendingUp className="w-6 h-6" />,
+      icon: <BarChart3 className="w-6 h-6" />,
       title: "Enable & Optimize",
       description: "Work with customer teams post-validation to ensure successful adoption, training, and ongoing performance optimization.",
       details: ["Knowledge transfer & documentation", "Post-deployment enablement", "Feedback loop for continuous improvement"]
