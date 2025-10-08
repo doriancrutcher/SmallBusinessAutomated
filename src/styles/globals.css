@@ -5,11 +5,13 @@
 /* Circuit background stacking context */
 html, body {
   height: 100%;
+  overflow-x: hidden;           /* Prevent horizontal scrolling */
 }
 body {
   position: relative;           /* creates the stacking context */
   background: #121212;
   color: #EDEDED;
+  max-width: 100vw;            /* Ensure body doesn't exceed viewport width */
 }
 #root, #app, .app-root {
   position: relative;
@@ -149,6 +151,18 @@ body {
   body {
     @apply bg-background text-foreground;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  }
+  
+  /* Prevent horizontal overflow */
+  .container {
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+  
+  /* Ensure all sections respect viewport width */
+  section {
+    max-width: 100vw;
+    overflow-x: hidden;
   }
 }
 

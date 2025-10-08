@@ -48,12 +48,12 @@ export function Services() {
     {
       icon: <Globe className="w-8 h-8" />,
       title: "Client Engagement & Technical Consulting",
-      description: "Working directly with founders and business development teams to architect technical solutions and integrate complex SDKs into their platforms",
+      description: "Partnering with business, product, and engineering teams to design and deploy tailored technical solutions. I specialize in bridging customer requirements with product capabilities from SDK integrations to scalable architecture planning.",
       technologies: [
         "SDK Integration & Architecture",
-        "Technical Strategy Sessions",
+        "Technical Discovery & Strategy Sessions",
         "Platform Integration Planning",
-        "Founder & BD Team Training"
+        "Customer Enablement & Team Training"
       ],
       level: "Advanced",
       popular: false

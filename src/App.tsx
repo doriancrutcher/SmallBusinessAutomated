@@ -21,9 +21,9 @@ export default function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background app-root">
+    <div className="min-h-screen bg-background app-root overflow-x-hidden">
       <Header />
-      <main>
+      <main className="overflow-x-hidden">
         <About />
         <Services />
         <CaseStudies />

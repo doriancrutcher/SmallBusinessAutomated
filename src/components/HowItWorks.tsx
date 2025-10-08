@@ -7,30 +7,30 @@ export function HowItWorks() {
     {
       number: 1,
       icon: <Search className="w-6 h-6" />,
-      title: "Understand Your Needs",
-      description: "We'll discuss your project requirements, technical challenges, and goals to ensure perfect alignment.",
-      details: ["Project consultation", "Technical assessment", "Goal alignment"]
+      title: "Understand the Environment",
+      description: "Begin with deep discovery to uncover the customer's workflow, existing systems, and core challenges. The goal is to define measurable success criteria that guide solution design.",
+      details: ["Technical discovery and needs analysis", "Stakeholder alignment", "Success metric definition"]
     },
     {
       number: 2,
       icon: <Wrench className="w-6 h-6" />,
-      title: "Design & Plan",
-      description: "I'll create a comprehensive technical plan, architecture design, and implementation roadmap for your project.",
-      details: ["Technical architecture", "Implementation plan", "Timeline & milestones"]
+      title: "Design & Validate",
+      description: "Collaborate with technical and business teams to design an architecture and workflow that fit the customer's goals. Prototype early to validate assumptions and demonstrate value.",
+      details: ["Solution architecture & integration mapping", "Proof-of-concept (PoC) or demo design", "Technical validation checkpoints"]
     },
     {
       number: 3,
       icon: <CheckSquare className="w-6 h-6" />,
-      title: "Build & Iterate",
-      description: "Development begins with regular check-ins, progress updates, and collaborative refinement throughout the process.",
-      details: ["Regular progress updates", "Collaborative development", "Iterative improvements"]
+      title: "Build & Demonstrate",
+      description: "Develop or configure the solution prototype, ensuring it clearly demonstrates the desired outcomes. Tailor the demo to different audiences, from engineers to executives.",
+      details: ["Hands-on configuration or development", "Iterative demo refinement", "Business value storytelling"]
     },
     {
       number: 4,
       icon: <TrendingUp className="w-6 h-6" />,
       title: "Enable & Optimize",
-      description: "Your solution launches with a focus on successful adoption, seamless performance, and measurable business outcomes.",
-      details: ["End-user training and enablement", "Post-deployment monitoring and optimization", "Ongoing technical guidance to ensure ROI"]
+      description: "Work with customer teams post-validation to ensure successful adoption, training, and ongoing performance optimization.",
+      details: ["Knowledge transfer & documentation", "Post-deployment enablement", "Feedback loop for continuous improvement"]
     }
   ];
 
@@ -45,8 +45,8 @@ export function HowItWorks() {
             Process
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            A collaborative, iterative approach that ensures your project succeeds through 
-            clear communication, technical excellence, and ongoing partnership.
+            A collaborative, technical approach focused on discovery, validation, and enablement 
+            ensuring each solution is aligned with business outcomes and technical excellence.
           </p>
         </div>
 
