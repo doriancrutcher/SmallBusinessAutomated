@@ -1,5 +1,5 @@
 import React from 'react';
-import { BookOpen, FileText, Bot, Filter, Vote, Book, Video } from "lucide-react";
+import { BookOpen, FileText, Bot, Filter, Vote, Book, Video, Film } from "lucide-react";
 
 export interface Project {
   id: string;
@@ -24,6 +24,29 @@ export interface Project {
 }
 
 export const projects: Project[] = [
+  {
+    id: "videoForgeAI",
+    title: "VideoForge AI",
+    industry: "Content Creation",
+    problem: "Content creators need a streamlined workflow to turn ideas into production ready short form videos with scripts, visual plans, and export assets",
+    toolsUsed: ["React", "AI", "OpenAI", "Content Generation", "Video Production Workflow"],
+    agent: "AI powered creator tool that transforms ideas into ready to produce short videos with scripts, visual plans, and export assets",
+    builtLabel: "App Built",
+    results: [
+      "Generates hook forward scripts that sound natural when spoken",
+      "Produces beat by beat outlines with suggested b roll and on screen text",
+      "Creates caption packs and social post copy for multiple platforms",
+      "Suggests thumbnail ideas and title options",
+      "Exports assets in formats that drop into CapCut or similar editors"
+    ],
+    description: "A creator tool designed to showcase AI powered workflows for content production. User enters a topic or link, and the app analyzes the source to produce two to three angles with hooks. After selecting an angle, the tool expands it into a timed script with scene notes and cut suggestions. Outputs captions, posting checklists, and optional prompts for image or video generation for b roll. Built to demonstrate the ability to design intelligent workflows that bridge ideation and production.",
+    icon: <Film className="w-5 h-5" />,
+    tags: ["Content Creation", "AI", "Video Production", "React"],
+    meta: "Creator and Full Stack",
+    links: {
+      live: "https://vidforgeai.netlify.app/"
+    }
+  },
   {
     id: "pigeonQuill",
     title: "PigeonQuill",

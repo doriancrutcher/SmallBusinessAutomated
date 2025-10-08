@@ -130,7 +130,7 @@ export function Services() {
                     : skill.title === "AI-Powered Applications"
                     ? window.open('https://www.youtube.com/shorts/RyJiqfWZEJE', '_blank')
                     : skill.title === "Client Engagement & Technical Consulting"
-                    ? window.open('https://www.youtube.com/embed/pSuTpjvfEEs?si=PI91J-WkN4O4eX9M', '_blank')
+                    ? window.open('https://docs.near.org/smart-contracts/quickstart', '_blank')
                     : document.getElementById('case-studies')?.scrollIntoView({ behavior: 'smooth' })
                   }
                   className={`w-full mt-6 pill-button group transition-all duration-300 flex items-center justify-center ${
