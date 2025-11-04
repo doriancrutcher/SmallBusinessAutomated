@@ -3,6 +3,11 @@ import { Code, Users, Zap, Github, Linkedin, Mail, Presentation } from "lucide-r
 import { motion } from 'framer-motion';
 
 export function About() {
+  const videoId = 'HhE4ATUCMOk';
+  
+  // Construct YouTube embed URL with parameters to minimize UI
+  // Using nocookie domain and parameters to reduce overlay elements
+  const embedUrl = `https://www.youtube-nocookie.com/embed/${videoId}?modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&controls=1&playsinline=1&cc_load_policy=0`;
   const stats = [
     {
       icon: <Code className="w-6 h-6" />,
@@ -53,6 +58,25 @@ export function About() {
   return (
     <section id="about" className="min-h-screen flex items-center justify-center py-24 bg-muted/30">
       <div className="max-w-7xl mx-auto px-4">
+        {/* Video Hero Banner */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.1 }}
+          className="mb-16"
+        >
+          <div className="relative w-full max-w-5xl mx-auto aspect-video bg-card rounded-2xl shadow-2xl overflow-hidden border border-secondary/20">
+            <iframe
+              src={embedUrl}
+              className="w-full h-full"
+              style={{ minHeight: '400px' }}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              title="Meet Dorian - Your Next Solutions Engineer"
+            />
+          </div>
+        </motion.div>
+
         <motion.div 
           className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
@@ -93,7 +117,7 @@ export function About() {
                 </div>
                 
                 <p className="text-muted-foreground leading-relaxed mb-6">
-                  I've spent 5+ years building and delivering technical solutions that work — from enterprise integrations to custom applications. My work spans full-stack development, technical consulting, and system architecture, always with a focus on practical, scalable, and business-aligned results. I've led technical workshops for 50+ developers, delivered solutions for enterprise clients, and grown technical communities from hundreds to <strong>10,000+</strong>.
+                  I've spent 5+ years building and delivering technical solutions that work from enterprise integrations to custom applications. My work spans full-stack development, technical consulting, and system architecture, always with a focus on practical, scalable, and business-aligned results. I've led technical workshops for 50+ developers, delivered solutions for enterprise clients, and grown technical communities from hundreds to <strong>10,000+</strong>.
                 </p>
 
 

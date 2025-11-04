@@ -5,6 +5,7 @@ import { ScrollAnimation, StaggerContainer, StaggerItem } from "./ScrollAnimatio
 import { motion } from 'framer-motion';
 
 export function WhyAgents() {
+
   const features = [
     "Automated Guest Messaging — Answers common questions instantly with accurate friendly responses",
     "Booking Management — Confirms and updates reservations across platforms",
@@ -220,7 +221,7 @@ export function WhyAgents() {
               <Youtube className="w-6 h-6 group-hover:scale-110 transition-transform" />
             </motion.button>
             <p className="text-sm text-muted-foreground mt-4 max-w-2xl mx-auto">
-              See my real Airbnb Agent in action — the foundation for this fictional Checkin+ case study.
+              See my real Airbnb Agent in action, the foundation for this fictional Checkin+ case study.
             </p>
           </ScrollAnimation>
         </div>
