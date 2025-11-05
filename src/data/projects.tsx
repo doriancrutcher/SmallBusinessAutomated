@@ -43,6 +43,7 @@ export const projects: Project[] = [
     icon: <Film className="w-5 h-5" />,
     tags: ["Content Creation", "AI", "Video Production", "React"],
     meta: "Creator and Full Stack",
+    screenshot: "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=800&h=600&fit=crop&q=80",
     links: {
       live: "https://vidforgeai.netlify.app/"
     }
@@ -145,7 +146,8 @@ export const projects: Project[] = [
     description: "A calm filter that turns the news firehose into personal impact alerts with clear reasons and zero doomscrolling.",
     icon: <Filter className="w-5 h-5" />,
     tags: ["Personal Research", "AI", "News", "React"],
-    meta: "Creator and Full Stack"
+    meta: "Creator and Full Stack",
+    screenshot: "https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=800&h=600&fit=crop&q=80"
   },
   {
     id: "blockchainVoting",
