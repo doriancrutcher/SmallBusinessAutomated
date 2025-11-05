@@ -1,61 +1,171 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-// Portfolio Logo
+
 const logo = '/SBA_logo_square.png';
+
+const sections = [
+  { id: 'about', label: 'About' },
+  { id: 'services', label: 'Skills' },
+  { id: 'case-studies', label: 'Projects' },
+  { id: 'how-it-works', label: 'Process' },
+  { id: 'why-agents', label: 'Demo' },
+  { id: 'contact', label: 'Contact' }
+];
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [activeSection, setActiveSection] = useState('about');
+  const observerRef = useRef<IntersectionObserver | null>(null);
+  const sectionElementsRef = useRef<Map<string, IntersectionObserverEntry>>(new Map<string, IntersectionObserverEntry>());
 
-  const sections = [
-    { id: 'about', label: 'About' },
-    { id: 'services', label: 'Skills' },
-    { id: 'case-studies', label: 'Projects' },
-    { id: 'how-it-works', label: 'Process' },
-    { id: 'why-agents', label: 'Demo' },
-    { id: 'contact', label: 'Contact' }
-  ];
-
+  // Scroll progress tracking
   useEffect(() => {
-    const handleScroll = () => {
+    const updateScrollProgress = () => {
+      const scrollY = window.scrollY;
       const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const progress = (window.scrollY / totalHeight) * 100;
-      setScrollProgress(progress);
+      const progress = totalHeight > 0 ? (scrollY / totalHeight) * 100 : 0;
+      setScrollProgress(Math.min(100, Math.max(0, progress)));
+    };
 
-      // Determine active section
-      const sectionElements = sections.map(section => ({
-        id: section.id,
-        element: document.getElementById(section.id)
-      })).filter(s => s.element);
+    window.addEventListener('scroll', updateScrollProgress, { passive: true });
+    updateScrollProgress(); // Initial call
 
-      // Check if we're at the top of the page
-      if (window.scrollY < 100) {
-        setActiveSection('about');
-        return;
-      }
+    return () => {
+      window.removeEventListener('scroll', updateScrollProgress);
+    };
+  }, []);
 
-      // Find the section that's currently in view
-      for (let i = sectionElements.length - 1; i >= 0; i--) {
-        const rect = sectionElements[i].element!.getBoundingClientRect();
-        if (rect.top <= 100) {
-          setActiveSection(sectionElements[i].id);
-          break;
+  // Active section detection using IntersectionObserver
+  useEffect(() => {
+    // Cleanup previous observer
+    if (observerRef.current) {
+      observerRef.current.disconnect();
+    }
+
+    // Create new IntersectionObserver
+    observerRef.current = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            sectionElementsRef.current.set(entry.target.id, entry);
+          } else {
+            sectionElementsRef.current.delete(entry.target.id);
+          }
+        });
+
+        // Determine active section based on intersection
+        if (sectionElementsRef.current.size === 0) {
+          // No sections are intersecting, find the closest one
+          const scrollY = window.scrollY;
+          const viewportCenter = scrollY + window.innerHeight / 2;
+          
+          let closestSection = sections[0].id;
+          let minDistance = Infinity;
+
+          sections.forEach((section) => {
+            const element = document.getElementById(section.id);
+            if (element) {
+              const rect = element.getBoundingClientRect();
+              const elementCenter = rect.top + scrollY + rect.height / 2;
+              const distance = Math.abs(viewportCenter - elementCenter);
+              
+              if (distance < minDistance) {
+                minDistance = distance;
+                closestSection = section.id;
+              }
+            }
+          });
+
+          setActiveSection(closestSection);
+        } else {
+          // Find the most visible section
+          let mostVisibleId = '';
+          let maxRatio = 0;
+
+          for (const [id, entry] of sectionElementsRef.current.entries()) {
+            if (entry.intersectionRatio > maxRatio) {
+              maxRatio = entry.intersectionRatio;
+              mostVisibleId = id;
+            }
+          }
+
+          if (mostVisibleId) {
+            setActiveSection(mostVisibleId);
+          }
         }
+      },
+      {
+        root: null,
+        rootMargin: '-20% 0px -60% 0px', // Trigger when section is in upper 40% of viewport
+        threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
+      }
+    );
+
+    // Observe all sections
+    const observer = observerRef.current;
+    const timeoutId = setTimeout(() => {
+      sections.forEach((section) => {
+        const element = document.getElementById(section.id);
+        if (element && observer) {
+          observer.observe(element);
+        }
+      });
+    }, 100);
+
+    // Handle initial scroll position
+    const handleInitialScroll = () => {
+      const scrollY = window.scrollY;
+      if (scrollY < 100) {
+        setActiveSection('about');
+      } else {
+        // Check which section is currently in view
+        sections.forEach((section) => {
+          const element = document.getElementById(section.id);
+          if (element) {
+            const rect = element.getBoundingClientRect();
+            if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
+              setActiveSection(section.id);
+            }
+          }
+        });
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    handleInitialScroll();
+
+    return () => {
+      clearTimeout(timeoutId);
+      if (observer) {
+        observer.disconnect();
+      }
+    };
   }, []);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      // Temporarily disable the observer to prevent conflicts during smooth scroll
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+      }
+
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setIsMenuOpen(false);
+
+      // Re-enable observer after scroll completes
+      setTimeout(() => {
+        if (observerRef.current) {
+          sections.forEach((section) => {
+            const el = document.getElementById(section.id);
+            if (el) {
+              observerRef.current?.observe(el);
+            }
+          });
+        }
+      }, 1000);
     }
-    setIsMenuOpen(false);
   };
 
   return (
@@ -84,19 +194,22 @@ export function Header() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-4">
-            {sections.map((section) => (
-              <button
-                key={section.id}
-                onClick={() => scrollToSection(section.id)}
-                className={`px-3 py-1.5 rounded-full transition-all duration-300 ${
-                  activeSection === section.id
-                    ? 'bg-secondary text-secondary-foreground font-medium'
-                    : 'text-foreground/80 hover:text-foreground hover:bg-foreground/10'
-                }`}
-              >
-                {section.label}
-              </button>
-            ))}
+            {sections.map((section) => {
+              const isActive = activeSection === section.id;
+              return (
+                <button
+                  key={section.id}
+                  onClick={() => scrollToSection(section.id)}
+                  className={`px-3 py-1.5 rounded-full transition-all duration-300 ${
+                    isActive
+                      ? 'bg-secondary text-secondary-foreground font-medium'
+                      : 'text-foreground/80 hover:text-foreground hover:bg-foreground/10'
+                  }`}
+                >
+                  {section.label}
+                </button>
+              );
+            })}
           </div>
 
           {/* Mobile Menu Button */}
