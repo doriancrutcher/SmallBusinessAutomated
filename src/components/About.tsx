@@ -56,20 +56,19 @@ export function About() {
   ];
 
   return (
-    <section id="about" className="min-h-screen flex items-center justify-center py-24 bg-muted/30">
-      <div className="max-w-7xl mx-auto px-4">
+    <section id="about" className="min-h-screen flex items-center justify-center py-12 md:py-24 bg-muted/30">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Video Hero Banner */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="mb-16"
+          className="mb-8 md:mb-16"
         >
-          <div className="relative w-full max-w-5xl mx-auto aspect-video bg-card rounded-2xl shadow-2xl overflow-hidden border border-secondary/20">
+          <div className="relative w-full max-w-5xl mx-auto aspect-video bg-card rounded-lg md:rounded-2xl shadow-2xl overflow-hidden border border-secondary/20">
             <iframe
               src={embedUrl}
-              className="w-full h-full"
-              style={{ minHeight: '400px' }}
+              className="absolute top-0 left-0 w-full h-full"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
               title="Meet Dorian - Your Next Solutions Engineer"
@@ -91,18 +90,18 @@ export function About() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8 lg:gap-16 items-center mb-20">
+        <div className="grid md:grid-cols-2 gap-8 lg:gap-16 items-start mb-20">
           {/* Left Column - About Content */}
           <motion.div 
-            className="space-y-8"
+            className="space-y-8 flex flex-col h-full"
             initial={{ opacity: 0, x: -100 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
             {/* Profile Card */}
-            <Card className="border-2 border-secondary/20 shadow-lg">
+            <Card className="border-2 border-secondary/20 shadow-lg flex-1">
               <CardContent className="p-8">
-                <div className="flex items-center space-x-4 mb-6">
+                <div className="flex items-center space-x-4 mb-8">
                   {/* Profile Avatar */}
                   <img 
                     src="/dorianheadshot.jpeg" 
@@ -116,11 +115,9 @@ export function About() {
                   </div>
                 </div>
                 
-                <p className="text-muted-foreground leading-relaxed mb-6">
+                <p className="text-muted-foreground leading-relaxed">
                   I've spent 5+ years building and delivering technical solutions that work from enterprise integrations to custom applications. My work spans full-stack development, technical consulting, and system architecture, always with a focus on practical, scalable, and business-aligned results. I've led technical workshops for 50+ developers, delivered solutions for enterprise clients, and grown technical communities from hundreds to <strong>10,000+</strong>.
                 </p>
-
-
               </CardContent>
             </Card>
 
@@ -193,7 +190,7 @@ export function About() {
 
           {/* Right Column - Stats & Timeline */}
           <motion.div 
-            className="space-y-8"
+            className="space-y-8 flex flex-col h-full"
             initial={{ opacity: 0, x: 100 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
