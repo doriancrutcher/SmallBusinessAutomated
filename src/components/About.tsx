@@ -56,7 +56,7 @@ export function About() {
   ];
 
   return (
-    <section id="about" className="min-h-screen flex items-center justify-center py-12 md:py-24 bg-muted/30">
+    <section id="about" className="min-h-screen flex items-center justify-center pt-24 md:pt-32 pb-12 md:pb-24 bg-muted/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Video Hero Banner */}
         <motion.div
