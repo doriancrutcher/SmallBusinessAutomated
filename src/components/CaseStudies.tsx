@@ -44,15 +44,16 @@ export function CaseStudies() {
             <div 
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 pb-4 pt-4"
               style={{ minHeight: '200px' }}
+              data-testid="project-grid"
             >
               {projects.map((project, index) => (
                 <motion.div
                   key={project.id}
-                  className="w-full"
-                  initial={{ opacity: 0, y: 20 }}
+                  className="w-full opacity-100"
+                  initial={{ opacity: 0.3, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1, duration: 0.6 }}
-                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.05, duration: 0.4, ease: 'easeOut' }}
+                  viewport={{ once: false, amount: 0.05, margin: '0px' }}
                   whileHover={{ y: -4, scale: 1.01 }}
                 >
                   <div 
@@ -81,13 +82,16 @@ export function CaseStudies() {
                           // Video Card - Primary
                           <div className="relative h-32 bg-muted/20 overflow-hidden rounded-t-lg">
                             <img 
-                              src={`https://img.youtube.com/vi/${project.videoUrl.split('embed/')[1]?.split('?')[0]}/hqdefault.jpg`}
+                              src={`https://img.youtube.com/vi/${project.videoUrl?.split('embed/')[1]?.split('?')[0] || ''}/hqdefault.jpg`}
                               alt={`${project.title} video thumbnail`}
                               className="w-full h-full object-cover"
                               loading="lazy"
                               onError={(e) => {
                                 const target = e.target as HTMLImageElement;
-                                target.src = `https://img.youtube.com/vi/${project.videoUrl.split('embed/')[1]?.split('?')[0]}/default.jpg`;
+                                const videoId = project.videoUrl?.split('embed/')[1]?.split('?')[0];
+                                if (videoId) {
+                                  target.src = `https://img.youtube.com/vi/${videoId}/default.jpg`;
+                                }
                               }}
                             />
                             <div className="absolute inset-0 bg-black/20 flex items-center justify-center group-hover:bg-black/30 transition-colors duration-300">
@@ -116,13 +120,17 @@ export function CaseStudies() {
                               onError={(e) => {
                                 const target = e.target as HTMLImageElement;
                                 target.style.display = 'none';
-                                target.parentElement!.innerHTML = `
-                                  <div class="w-full h-full flex items-center justify-center bg-muted/10 rounded-t-lg">
-                                    <div class="w-16 h-16 bg-secondary/20 rounded-xl flex items-center justify-center text-secondary">
-                                      ${project.icon}
-                                    </div>
-                                  </div>
-                                `;
+                                // Use a more mobile-friendly fallback
+                                const parent = target.parentElement;
+                                if (parent && !parent.querySelector('.image-fallback')) {
+                                  const fallback = document.createElement('div');
+                                  fallback.className = 'image-fallback w-full h-full flex items-center justify-center bg-muted/10 rounded-t-lg';
+                                  const iconContainer = document.createElement('div');
+                                  iconContainer.className = 'w-16 h-16 bg-secondary/20 rounded-xl flex items-center justify-center';
+                                  iconContainer.innerHTML = '<svg class="w-8 h-8 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>';
+                                  fallback.appendChild(iconContainer);
+                                  parent.appendChild(fallback);
+                                }
                               }}
                             />
                           </div>

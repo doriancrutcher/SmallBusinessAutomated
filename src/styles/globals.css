@@ -406,6 +406,19 @@ html {
   height: 320px;
   display: flex;
   flex-direction: column;
+  opacity: 1 !important; /* Ensure cards are visible even if animations fail */
+}
+
+/* Mobile-specific fixes for project cards */
+@media (max-width: 768px) {
+  .project-card {
+    min-height: 320px;
+  }
+  
+  /* Ensure motion components render on mobile */
+  [data-testid="project-grid"] > * {
+    opacity: 1 !important;
+  }
 }
 
 .project-card-header {

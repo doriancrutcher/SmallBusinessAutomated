@@ -35,7 +35,8 @@ export function ScrollAnimation({
     <motion.div
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.3 }}
+      viewport={{ once: false, amount: 0.05, margin: '0px' }}
+      transition={{ duration: 0.4, delay }}
       variants={variants}
       className={className}
     >
@@ -49,7 +50,7 @@ export function StaggerContainer({ children, className = '' }: { children: React
     <motion.div
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.3 }}
+      viewport={{ once: false, amount: 0.05, margin: '0px' }}
       variants={{
         visible: {
           transition: {
