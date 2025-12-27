@@ -7,9 +7,10 @@ interface ModalProps {
   onClose: () => void;
   title: string;
   children: React.ReactNode;
+  headerAction?: React.ReactNode;
 }
 
-export function Modal({ isOpen, onClose, title, children }: ModalProps) {
+export function Modal({ isOpen, onClose, title, children, headerAction }: ModalProps) {
   const modalRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const previousFocusRef = useRef<HTMLElement | null>(null);
@@ -134,25 +135,28 @@ export function Modal({ isOpen, onClose, title, children }: ModalProps) {
         >
           {/* Header */}
           <div className="flex items-center justify-between p-6 border-b border-zinc-800">
-            <div>
+            <div className="flex-1">
               <h2 id="modal-title" className="text-xl font-semibold text-foreground">
                 {title}
               </h2>
             </div>
-            <button
-              onClick={handleClose}
-              className="p-2 rounded-lg hover:bg-zinc-800 transition-colors focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 focus:ring-offset-zinc-900"
-              aria-label="Close"
-            >
-              <X className="w-5 h-5 text-muted-foreground" />
-            </button>
+            <div className="flex items-center gap-2">
+              {headerAction}
+              <button
+                onClick={handleClose}
+                className="p-2 rounded-lg hover:bg-zinc-800 transition-colors focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 focus:ring-offset-zinc-900"
+                aria-label="Close"
+              >
+                <X className="w-5 h-5 text-muted-foreground" />
+              </button>
+            </div>
           </div>
 
           {/* Content */}
           <div className="relative">
             <div 
               ref={contentRef}
-              className="p-6 max-h-[60vh] overflow-y-auto"
+              className="p-6 max-h-[70vh] overflow-y-auto"
             >
               {children}
             </div>

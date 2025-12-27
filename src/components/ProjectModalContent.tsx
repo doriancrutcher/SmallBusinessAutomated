@@ -3,7 +3,6 @@ import { ExternalLink, Github, Globe, FileText } from 'lucide-react';
 
 interface ProjectModalContentProps {
   title: string;
-  meta?: string;
   problem: string;
   builtLabel: string;
   builtValue: string;
@@ -20,7 +19,6 @@ interface ProjectModalContentProps {
 
 export function ProjectModalContent({
   title,
-  meta,
   problem,
   builtLabel,
   builtValue,
@@ -30,15 +28,26 @@ export function ProjectModalContent({
   videoUrl,
   links
 }: ProjectModalContentProps) {
+
   return (
     <div className="space-y-6">
-      {/* Header */}
-      <div className="space-y-2">
-        <h3 className="text-2xl font-bold text-foreground">{title}</h3>
-        {meta && (
-          <p className="text-sm text-muted-foreground">{meta}</p>
-        )}
-      </div>
+      {/* Video Embed - At the top */}
+      {videoUrl && (
+        <div>
+          <h4 className="font-semibold text-foreground mb-3">Demo</h4>
+          <div className="relative w-full" style={{ aspectRatio: '16/9' }}>
+            <iframe
+              src={videoUrl}
+              className="w-full h-full rounded-lg border border-zinc-800"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title={`${title} demo video`}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
+        </div>
+      )}
 
       {/* Problem and Built Section */}
       <div className="grid md:grid-cols-2 gap-6">
@@ -81,24 +90,6 @@ export function ProjectModalContent({
         <div>
           <h4 className="font-semibold text-foreground mb-3">Summary</h4>
           <p className="text-muted-foreground leading-relaxed">{summary}</p>
-        </div>
-      )}
-
-      {/* Video Embed */}
-      {videoUrl && (
-        <div>
-          <h4 className="font-semibold text-foreground mb-3">Demo</h4>
-          <div className="relative w-full" style={{ aspectRatio: '16/9' }}>
-            <iframe
-              src={videoUrl}
-              className="w-full h-full rounded-lg border border-zinc-800"
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title={`${title} demo video`}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
-          </div>
         </div>
       )}
 

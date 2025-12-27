@@ -1,16 +1,87 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
-import { ExternalLink, Play } from "lucide-react";
+import { ExternalLink, Play, Share2, Check } from "lucide-react";
 import { ScrollAnimation } from "./ScrollAnimation";
 import { motion } from 'framer-motion';
 import { Modal } from './Modal';
 import { ProjectModalContent } from './ProjectModalContent';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { projects } from '../data/projects';
 
 export function CaseStudies() {
   const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [copied, setCopied] = useState(false);
+
+  const handleShare = async (projectId: string) => {
+    const shareUrl = `${window.location.origin}${window.location.pathname}?project=${projectId}`;
+
+    try {
+      // Try native share API first (mobile)
+      if (navigator.share) {
+        await navigator.share({
+          title: `Check out this project`,
+          text: `Check out this project`,
+          url: shareUrl,
+        });
+      } else {
+        // Fallback to clipboard
+        await navigator.clipboard.writeText(shareUrl);
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+      }
+    } catch (error) {
+      // User cancelled share or clipboard failed, try fallback
+      try {
+        await navigator.clipboard.writeText(shareUrl);
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+      } catch (clipboardError) {
+        console.error('Failed to copy to clipboard:', clipboardError);
+      }
+    }
+  };
+
+  // Handle URL parameters for direct linking
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const projectId = params.get('project');
+    
+    if (projectId) {
+      // Verify the project exists
+      const projectExists = projects.some(p => p.id === projectId);
+      if (projectExists) {
+        // Scroll to the section first
+        const section = document.getElementById('case-studies');
+        if (section) {
+          section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          // Small delay to ensure scroll completes before opening modal
+          setTimeout(() => {
+            setSelectedId(projectId);
+          }, 500);
+        } else {
+          setSelectedId(projectId);
+        }
+      }
+    }
+  }, []);
+
+  // Update URL when modal opens/closes
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    
+    if (selectedId) {
+      params.set('project', selectedId);
+      // Use replaceState to avoid adding to history stack
+      window.history.replaceState({}, '', `${window.location.pathname}?${params.toString()}`);
+    } else {
+      params.delete('project');
+      const newUrl = params.toString() 
+        ? `${window.location.pathname}?${params.toString()}`
+        : window.location.pathname;
+      window.history.replaceState({}, '', newUrl);
+    }
+  }, [selectedId]);
 
   // Debug log for mobile issues
   console.log('CaseStudies component loaded, projects count:', projects.length);
@@ -189,10 +260,28 @@ export function CaseStudies() {
               isOpen={selectedId !== null}
               onClose={() => setSelectedId(null)}
               title={activeProject.title}
+              headerAction={
+                <button
+                  onClick={() => handleShare(activeProject.id)}
+                  className="flex items-center gap-2 px-4 py-2 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-foreground transition-colors focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 focus:ring-offset-zinc-900"
+                  aria-label="Share project link"
+                >
+                  {copied ? (
+                    <>
+                      <Check className="w-4 h-4 text-secondary" />
+                      <span className="text-sm text-secondary">Copied!</span>
+                    </>
+                  ) : (
+                    <>
+                      <Share2 className="w-4 h-4" />
+                      <span className="text-sm">Share</span>
+                    </>
+                  )}
+                </button>
+              }
             >
               <ProjectModalContent
                 title={activeProject.title}
-                meta={activeProject.meta}
                 problem={activeProject.problem}
                 builtLabel={activeProject.builtLabel}
                 builtValue={activeProject.agent}
