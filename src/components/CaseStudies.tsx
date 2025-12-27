@@ -1,7 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
-import { ExternalLink, Play, Share2, Check } from "lucide-react";
+import { ExternalLink, Play, Link as LinkIcon, Check } from "lucide-react";
 import { ScrollAnimation } from "./ScrollAnimation";
 import { motion } from 'framer-motion';
 import { Modal } from './Modal';
@@ -13,32 +13,15 @@ export function CaseStudies() {
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [copied, setCopied] = useState(false);
 
-  const handleShare = async (projectId: string) => {
+  const handleCopyLink = async (projectId: string) => {
     const shareUrl = `${window.location.origin}${window.location.pathname}?project=${projectId}`;
 
     try {
-      // Try native share API first (mobile)
-      if (navigator.share) {
-        await navigator.share({
-          title: `Check out this project`,
-          text: `Check out this project`,
-          url: shareUrl,
-        });
-      } else {
-        // Fallback to clipboard
-        await navigator.clipboard.writeText(shareUrl);
-        setCopied(true);
-        setTimeout(() => setCopied(false), 2000);
-      }
+      await navigator.clipboard.writeText(shareUrl);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
     } catch (error) {
-      // User cancelled share or clipboard failed, try fallback
-      try {
-        await navigator.clipboard.writeText(shareUrl);
-        setCopied(true);
-        setTimeout(() => setCopied(false), 2000);
-      } catch (clipboardError) {
-        console.error('Failed to copy to clipboard:', clipboardError);
-      }
+      console.error('Failed to copy to clipboard:', error);
     }
   };
 
@@ -262,9 +245,9 @@ export function CaseStudies() {
               title={activeProject.title}
               headerAction={
                 <button
-                  onClick={() => handleShare(activeProject.id)}
+                  onClick={() => handleCopyLink(activeProject.id)}
                   className="flex items-center gap-2 px-4 py-2 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-foreground transition-colors focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 focus:ring-offset-zinc-900"
-                  aria-label="Share project link"
+                  aria-label="Copy project link"
                 >
                   {copied ? (
                     <>
@@ -273,8 +256,8 @@ export function CaseStudies() {
                     </>
                   ) : (
                     <>
-                      <Share2 className="w-4 h-4" />
-                      <span className="text-sm">Share</span>
+                      <LinkIcon className="w-4 h-4" />
+                      <span className="text-sm">Copy Link</span>
                     </>
                   )}
                 </button>
